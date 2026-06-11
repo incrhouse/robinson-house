@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Telehealth Therapy | Texas, New Mexico, Florida, Idaho, Nebraska | Robinson House</title>
+<meta name="description" content="Online therapy via telehealth with Dr. Cleveland Robinson. Licensed in Texas, New Mexico, Florida, Idaho, and Nebraska. Secure video sessions from anywhere.">
+<meta name="keywords" content="telehealth therapist Texas, online therapist New Mexico, virtual counseling Florida, telehealth therapy Idaho, online therapist Nebraska, telehealth LPC, online behavioral health">
+<link rel="canonical" href="https://robinsonhbh.com/telehealth.html">
+<meta property="og:title" content="Telehealth Therapy | Robinson House Behavioral Health">
+<meta property="og:description" content="Licensed telehealth therapy in TX, NM, FL, ID & NE. Secure video sessions with Dr. Cleveland Robinson.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #F5F0E8;
+  --cream-dark: #EDE7D9;
+  --forest: #1E3D2F;
+  --forest-mid: #2D5A42;
+  --forest-lite: #4A7C5F;
+  --forest-mist: #E8F0EB;
+  --charcoal: #1A1A1A;
+  --warm-gray: #6B6560;
+  --white: #FFFFFF;
+  --radius: 4px;
+  --radius-lg: 12px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', -apple-system, sans-serif;
+  background: var(--cream);
+  color: var(--charcoal);
+  font-size: 16px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 0 5%;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(245,240,232,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(30,61,47,0.08);
+  box-shadow: 0 2px 20px rgba(30,61,47,0.06);
+}
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--forest);
+  text-decoration: none;
+}
+.nav-logo span {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--warm-gray);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--charcoal);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--forest); }
+.nav-links a.active { color: var(--forest); font-weight: 600; }
+.nav-cta {
+  background: var(--forest) !important;
+  color: var(--white) !important;
+  padding: 10px 22px;
+  border-radius: var(--radius);
+  font-weight: 600 !important;
+  font-size: 13px !important;
+}
+.nav-mobile-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+  padding: 4px;
+}
+.nav-mobile-btn span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--charcoal);
+  border-radius: 2px;
+}
+
+/* ── HERO ── */
+.page-hero {
+  padding-top: 72px;
+  background: var(--forest);
+  position: relative;
+  overflow: hidden;
+}
+.page-hero::before {
+  content: '';
+  position: absolute;
+  top: -30%;
+  right: -5%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(74,124,95,0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 8% 72px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+.hero-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.hero-eyebrow::before {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: rgba(255,255,255,0.3);
+}
+.hero-inner h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(36px, 4vw, 56px);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+.hero-inner h1 em {
+  font-style: italic;
+  color: rgba(255,255,255,0.65);
+}
+.hero-sub {
+  font-size: 17px;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.8;
+  margin-bottom: 36px;
+  max-width: 480px;
+}
+.hero-states {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 36px;
+}
+.state-badge {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.8);
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.btn-book-hero {
+  display: inline-block;
+  background: var(--cream);
+  color: var(--forest);
+  padding: 16px 32px;
+  border-radius: var(--radius);
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+}
+.btn-book-hero:hover { background: var(--white); transform: translateY(-2px); }
+
+/* Hero video */
+.hero-video-wrap {
+  position: relative;
+  padding-bottom: 65%;
+  height: 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.3);
+}
+.hero-video-wrap iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ── TRUST BAR ── */
+.trust-bar {
+  background: var(--white);
+  padding: 32px 8%;
+  border-bottom: 1px solid rgba(30,61,47,0.08);
+}
+.trust-bar-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  text-align: center;
+}
+.trust-stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--forest);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.trust-stat-label {
+  font-size: 13px;
+  color: var(--warm-gray);
+  font-weight: 500;
+}
+
+/* ── SECTIONS ── */
+.section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 8%;
+}
+.section-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--forest-lite);
+  margin-bottom: 16px;
+}
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 3vw, 42px);
+  color: var(--forest);
+  margin-bottom: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.section-sub {
+  font-size: 17px;
+  color: var(--warm-gray);
+  max-width: 560px;
+  line-height: 1.8;
+  margin-bottom: 48px;
+}
+
+/* ── HOW IT WORKS ── */
+.how-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.how-card {
+  background: var(--white);
+  border: 1px solid rgba(30,61,47,0.08);
+  border-radius: var(--radius-lg);
+  padding: 32px 24px;
+  position: relative;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.how-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(30,61,47,0.08);
+}
+.how-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--forest-mist);
+  line-height: 1;
+  margin-bottom: 16px;
+}
+.how-card h3 {
+  font-size: 16px;
+  color: var(--forest);
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+.how-card p {
+  font-size: 14px;
+  color: var(--warm-gray);
+  line-height: 1.7;
+}
+
+/* ── STATES SECTION ── */
+.states-section {
+  background: var(--forest);
+  padding: 80px 8%;
+}
+.states-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.states-section .section-eyebrow { color: rgba(255,255,255,0.5); }
+.states-section .section-title { color: var(--white); }
+.states-section .section-sub { color: rgba(255,255,255,0.6); }
+.states-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+.state-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius-lg);
+  padding: 28px 20px;
+  text-align: center;
+  transition: background 0.2s;
+}
+.state-card:hover { background: rgba(255,255,255,0.1); }
+.state-abbr {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 6px;
+  line-height: 1;
+}
+.state-lic-type {
+  font-size: 13px;
+  font-weight: 700;
+  color: #7aad7a;
+  margin-bottom: 6px;
+}
+.state-full-name {
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.state-searches {
+  font-size: 11px;
+  color: rgba(255,255,255,0.35);
+  line-height: 1.5;
+  font-style: italic;
+}
+
+/* ── WHAT YOU NEED ── */
+.needs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.need-card {
+  background: var(--white);
+  border: 1px solid rgba(30,61,47,0.08);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.need-icon {
+  width: 44px;
+  height: 44px;
+  background: var(--forest-mist);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 20px;
+}
+.need-card h3 {
+  font-size: 15px;
+  color: var(--forest);
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+.need-card p {
+  font-size: 13px;
+  color: var(--warm-gray);
+  line-height: 1.6;
+}
+
+/* ── FAQ ── */
+.faq-section { background: var(--cream-dark); padding: 80px 8%; }
+.faq-inner { max-width: 800px; margin: 0 auto; }
+.faq-list { display: flex; flex-direction: column; gap: 2px; margin-top: 40px; }
+.faq-item {
+  background: var(--white);
+  border: 1px solid rgba(30,61,47,0.08);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--forest);
+  text-align: left;
+  gap: 16px;
+}
+.faq-question .chevron {
+  font-size: 18px;
+  color: var(--forest-lite);
+  transition: transform 0.3s;
+  flex-shrink: 0;
+}
+.faq-item.open .chevron { transform: rotate(180deg); }
+.faq-answer {
+  display: none;
+  padding: 0 24px 20px;
+  font-size: 14px;
+  color: var(--warm-gray);
+  line-height: 1.8;
+}
+.faq-item.open .faq-answer { display: block; }
+
+/* ── BOOK CTA ── */
+.book-cta-section {
+  background: var(--cream);
+  padding: 80px 8%;
+  text-align: center;
+  border-top: 1px solid rgba(30,61,47,0.08);
+}
+.book-cta-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 3.5vw, 48px);
+  color: var(--forest);
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+.book-cta-section p {
+  font-size: 17px;
+  color: var(--warm-gray);
+  max-width: 480px;
+  margin: 0 auto 36px;
+  line-height: 1.8;
+}
+.cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.btn-primary {
+  background: var(--forest);
+  color: var(--white);
+  padding: 16px 32px;
+  border-radius: var(--radius);
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+  display: inline-block;
+}
+.btn-primary:hover { background: var(--forest-mid); transform: translateY(-2px); }
+.btn-ghost {
+  color: var(--forest);
+  padding: 16px 24px;
+  border-radius: var(--radius);
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1.5px solid var(--forest);
+  transition: background 0.2s;
+  display: inline-block;
+}
+.btn-ghost:hover { background: var(--forest-mist); }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--forest);
+  color: rgba(255,255,255,0.75);
+  padding: 64px 8% 40px;
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  margin-bottom: 32px;
+}
+.footer-logo-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 12px;
+  display: block;
+}
+.footer-tagline { font-size: 13px; line-height: 1.7; max-width: 280px; }
+.footer-col h4 {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 20px;
+}
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-col ul a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+.footer-col ul a:hover { color: var(--white); }
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 12px;
+}
+.footer-disclaimer { max-width: 600px; line-height: 1.6; opacity: 0.5; }
+.footer-copy { opacity: 0.5; white-space: nowrap; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1000px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .how-grid { grid-template-columns: repeat(2, 1fr); }
+  .states-grid { grid-template-columns: repeat(3, 1fr); }
+  .needs-grid { grid-template-columns: repeat(2, 1fr); }
+  .trust-bar-inner { grid-template-columns: repeat(2, 1fr); }
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .nav-links { display: none; }
+  .nav-mobile-btn { display: flex; }
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 72px; left: 0; right: 0;
+    background: var(--cream);
+    padding: 24px 5% 32px;
+    border-bottom: 1px solid rgba(30,61,47,0.1);
+    gap: 20px;
+    align-items: flex-start;
+  }
+}
+@media (max-width: 600px) {
+  .states-grid { grid-template-columns: repeat(2, 1fr); }
+  .needs-grid { grid-template-columns: 1fr; }
+  .how-grid { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: 1fr; }
+  .section { padding: 56px 5%; }
+}
+
+.fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) { .fade-up { opacity: 1; transform: none; transition: none; } }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="/" class="nav-logo">
+    Robinson House
+    <span>Behavioral Health</span>
+  </a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="/services.html">Services</a></li>
+    <li><a href="/about.html">About</a></li>
+    <li><a href="/#specialties">Specialties</a></li>
+    <li><a href="https://tiyarecare.com" target="_blank">Tiyare Care</a></li>
+    <li><a href="/contact.html" class="nav-cta">Get Started</a></li>
+  </ul>
+  <button class="nav-mobile-btn" id="mobile-btn" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow">Telehealth Therapy</div>
+      <h1>Real therapy.<br><em>Wherever you are.</em></h1>
+      <p class="hero-sub">No commute. No waiting room. No compromise on quality. Dr. Robinson delivers the same full-spectrum care through secure video sessions — available across five states.</p>
+      <div class="hero-states">
+        <span class="state-badge">Texas · LPC-S</span>
+        <span class="state-badge">New Mexico · LPCC</span>
+        <span class="state-badge">Florida · LMHC</span>
+        <span class="state-badge">Idaho · LPC</span>
+        <span class="state-badge">Nebraska · LMHP</span>
+      </div>
+      <a href="https://robinsonhouse.clientsecure.me" target="_blank" class="btn-book-hero">Book My First Session →</a>
+    </div>
+    <div>
+      <div class="hero-video-wrap">
+        <iframe src="https://www.loom.com/embed/10dd87d6d9a541d9bf01b446d3cf4f7b" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <div class="fade-up">
+      <div class="trust-stat-num">5</div>
+      <div class="trust-stat-label">States licensed to practice</div>
+    </div>
+    <div class="fade-up">
+      <div class="trust-stat-num">10+</div>
+      <div class="trust-stat-label">Years in the profession</div>
+    </div>
+    <div class="fade-up">
+      <div class="trust-stat-num">100%</div>
+      <div class="trust-stat-label">Telehealth — no in-person required</div>
+    </div>
+    <div class="fade-up">
+      <div class="trust-stat-num">HIPAA</div>
+      <div class="trust-stat-label">Secure & compliant sessions</div>
+    </div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<div class="section">
+  <div class="fade-up">
+    <div class="section-eyebrow">The process</div>
+    <h2 class="section-title">How telehealth works with Dr. Robinson</h2>
+    <p class="section-sub">Getting started is simple. From your first session to ongoing care — here's exactly what to expect.</p>
+  </div>
+  <div class="how-grid">
+    <div class="how-card fade-up">
+      <div class="how-num">01</div>
+      <h3>Book your session</h3>
+      <p>Click the booking link and choose a time that works for you. You'll receive a confirmation and intake forms via SimplePractice.</p>
+    </div>
+    <div class="how-card fade-up">
+      <div class="how-num">02</div>
+      <h3>Complete intake forms</h3>
+      <p>Fill out your intake paperwork through the secure SimplePractice client portal before your first session.</p>
+    </div>
+    <div class="how-card fade-up">
+      <div class="how-num">03</div>
+      <h3>Join your session</h3>
+      <p>At your appointment time, join from your phone, tablet, or computer. No downloads required — just a stable internet connection.</p>
+    </div>
+    <div class="how-card fade-up">
+      <div class="how-num">04</div>
+      <h3>Begin your work</h3>
+      <p>Your first session focuses on understanding your goals and building a plan. Ongoing sessions are scheduled at a cadence that works for you.</p>
+    </div>
+  </div>
+</div>
+
+<!-- STATES -->
+<div class="states-section">
+  <div class="states-inner">
+    <div class="fade-up">
+      <div class="section-eyebrow">Where we practice</div>
+      <h2 class="section-title">Licensed in 5 states</h2>
+      <p class="section-sub">Dr. Robinson holds independent licensure in each state — not reciprocity. You must be physically located in one of these states at the time of your session.</p>
+    </div>
+    <div class="states-grid">
+      <div class="state-card fade-up">
+        <div class="state-abbr">TX</div>
+        <div class="state-lic-type">LPC-S</div>
+        <div class="state-full-name">Texas</div>
+        <div class="state-searches">Telehealth therapist Texas · Online LPC Texas</div>
+      </div>
+      <div class="state-card fade-up">
+        <div class="state-abbr">NM</div>
+        <div class="state-lic-type">LPCC</div>
+        <div class="state-full-name">New Mexico</div>
+        <div class="state-searches">Telehealth therapist New Mexico · Online counseling NM</div>
+      </div>
+      <div class="state-card fade-up">
+        <div class="state-abbr">FL</div>
+        <div class="state-lic-type">LMHC</div>
+        <div class="state-full-name">Florida</div>
+        <div class="state-searches">Telehealth therapist Florida · Online LMHC Florida</div>
+      </div>
+      <div class="state-card fade-up">
+        <div class="state-abbr">ID</div>
+        <div class="state-lic-type">LPC</div>
+        <div class="state-full-name">Idaho</div>
+        <div class="state-searches">Telehealth therapist Idaho · Online counseling Idaho</div>
+      </div>
+      <div class="state-card fade-up">
+        <div class="state-abbr">NE</div>
+        <div class="state-lic-type">LMHP</div>
+        <div class="state-full-name">Nebraska</div>
+        <div class="state-searches">Telehealth therapist Nebraska · Online LMHP Nebraska</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT YOU NEED -->
+<div class="section" style="background: var(--white);">
+  <div class="fade-up">
+    <div class="section-eyebrow">Getting ready</div>
+    <h2 class="section-title">All you need to get started</h2>
+    <p class="section-sub">Telehealth is simpler than you think. Here's everything you need for a successful session.</p>
+  </div>
+  <div class="needs-grid">
+    <div class="need-card fade-up">
+      <div class="need-icon">📱</div>
+      <div>
+        <h3>A device</h3>
+        <p>Any smartphone, tablet, or computer with a camera and microphone. No special software or downloads required.</p>
+      </div>
+    </div>
+    <div class="need-card fade-up">
+      <div class="need-icon">🌐</div>
+      <div>
+        <h3>Internet connection</h3>
+        <p>A stable WiFi or cellular connection. Standard home broadband or 4G/5G is more than sufficient.</p>
+      </div>
+    </div>
+    <div class="need-card fade-up">
+      <div class="need-icon">🔒</div>
+      <div>
+        <h3>A private space</h3>
+        <p>A quiet, private location where you feel comfortable speaking openly. Your car, bedroom, or home office all work well.</p>
+      </div>
+    </div>
+    <div class="need-card fade-up">
+      <div class="need-icon">📋</div>
+      <div>
+        <h3>Completed intake forms</h3>
+        <p>You'll receive intake paperwork through SimplePractice before your first session. Takes about 15 minutes to complete.</p>
+      </div>
+    </div>
+    <div class="need-card fade-up">
+      <div class="need-icon">📍</div>
+      <div>
+        <h3>Be in a licensed state</h3>
+        <p>You must be physically located in TX, NM, FL, ID, or NE at the time of your session for Dr. Robinson to legally provide services.</p>
+      </div>
+    </div>
+    <div class="need-card fade-up">
+      <div class="need-icon">⏰</div>
+      <div>
+        <h3>Show up on time</h3>
+        <p>Sessions start on time. Log in 2-3 minutes early to test your camera and microphone so you don't lose session time.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="faq-section">
+  <div class="faq-inner">
+    <div class="fade-up">
+      <div class="section-eyebrow">Common questions</div>
+      <h2 class="section-title">Telehealth FAQ</h2>
+    </div>
+    <div class="faq-list fade-up">
+      <div class="faq-item">
+        <button class="faq-question">Is telehealth as effective as in-person therapy? <span class="chevron">▾</span></button>
+        <div class="faq-answer">Research consistently shows that telehealth therapy produces outcomes equivalent to in-person therapy for most mental health conditions including anxiety, depression, and trauma. Many clients actually find it easier to open up from the comfort of their own space.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Is my session private and secure? <span class="chevron">▾</span></button>
+        <div class="faq-answer">Yes. All sessions are conducted through SimplePractice, a HIPAA-compliant telehealth platform with end-to-end encryption. Your session content is never recorded without your explicit consent.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">What if I live in a state Dr. Robinson isn't licensed in? <span class="chevron">▾</span></button>
+        <div class="faq-answer">Dr. Robinson can only provide therapy to clients physically located in Texas, New Mexico, Florida, Idaho, or Nebraska at the time of the session. If you're in another state, he is unable to legally provide services but can refer you to a qualified provider.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Does insurance cover telehealth sessions? <span class="chevron">▾</span></button>
+        <div class="faq-answer">Many insurance plans now cover telehealth therapy at the same rate as in-person sessions. Contact your insurance provider to verify your telehealth benefits. Self-pay and sliding scale options are also available.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">What happens if I have technical difficulties during a session? <span class="chevron">▾</span></button>
+        <div class="faq-answer">If you experience technical issues, Dr. Robinson will attempt to reach you by phone. Sessions interrupted by genuine technical difficulties will be rescheduled or completed via phone at no additional charge.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">How do I cancel or reschedule? <span class="chevron">▾</span></button>
+        <div class="faq-answer">You can cancel or reschedule through your SimplePractice client portal. Please provide at least 24 hours notice to avoid a late cancellation fee.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BOOK CTA -->
+<div class="book-cta-section">
+  <div class="fade-up">
+    <h2>Therapy that fits your life.<br>Book in 60 seconds.</h2>
+    <p>No consultation required. Watch Dr. Robinson's intro video, pick a time, and show up ready to do the work.</p>
+    <div class="cta-actions">
+      <a href="https://robinsonhouse.clientsecure.me" target="_blank" class="btn-primary">Book My First Session →</a>
+      <a href="/contact.html" class="btn-ghost">Have a question first?</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <span class="footer-logo-text">Robinson House</span>
+      <p class="footer-tagline">Full-spectrum behavioral health care via telehealth. Licensed in Texas, New Mexico, Florida, Idaho, and Nebraska.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="/services.html">All Services</a></li>
+        <li><a href="/telehealth.html" style="color:rgba(255,255,255,0.9)">Telehealth</a></li>
+        <li><a href="/services/individual-therapy.html">Individual Therapy</a></li>
+        <li><a href="/services/couples-therapy.html">Couples Therapy</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Tools</h4>
+      <ul>
+        <li><a href="https://tiyarecare.com" target="_blank">Tiyare Care</a></li>
+        <li><a href="/cer2-tracker.html">CER2 Tracker</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="/contact.html">Book a Session</a></li>
+        <li><a href="mailto:cleveland@incrhouse.com">cleveland@incrhouse.com</a></li>
+        <li><a href="tel:2089980162">208-998-0162</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-disclaimer">Robinson House Behavioral Health Services, LLC. Licensed as LPC-S (TX), LPCC (NM), LMHC (FL), LPC (ID), and LMHP (NE). Telehealth services only. Clients must be physically located in a licensed state at time of session. Not a crisis service — call 988 or 911 in an emergency.</p>
+    <p class="footer-copy">© 2026 Robinson House Behavioral Health Services, LLC</p>
+  </div>
+</footer>
+
+<script>
+const mobileBtn = document.getElementById('mobile-btn');
+const navLinks = document.getElementById('nav-links');
+mobileBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
+navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+// FAQ accordion
+document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+
+// Scroll animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
