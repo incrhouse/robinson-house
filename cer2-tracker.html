@@ -1,0 +1,1730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CER2 Practice Cash Flow Tracker</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy-900: #0c1929;
+            --navy-800: #132238;
+            --navy-700: #1a3050;
+            --navy-600: #234068;
+            --navy-500: #2d5280;
+            --white: #ffffff;
+            --gray-50: #f8f9fb;
+            --gray-100: #f0f2f5;
+            --gray-200: #e2e6ec;
+            --gray-300: #cdd3dc;
+            --gray-400: #9ba5b4;
+            --gray-500: #6b7789;
+            --gray-600: #4a5567;
+            --gray-700: #364152;
+            --sage-50: #f0f5f0;
+            --sage-100: #dce8dc;
+            --sage-200: #b8d1b8;
+            --sage-400: #7aad7a;
+            --sage-500: #5a9a5a;
+            --sage-600: #4a854a;
+            --sage-700: #3a6b3a;
+            --sage-800: #2d542d;
+            --red-50: #fef2f2;
+            --red-100: #fee2e2;
+            --red-400: #f87171;
+            --red-500: #ef4444;
+            --red-600: #dc2626;
+            --red-700: #b91c1c;
+            --amber-50: #fffbeb;
+            --amber-100: #fef3c7;
+            --amber-500: #f59e0b;
+            --amber-600: #d97706;
+            --amber-700: #b45309;
+            --amber-800: #92400e;
+            --blue-50: #eff6ff;
+            --blue-100: #dbeafe;
+            --blue-500: #3b82f6;
+            --blue-600: #2563eb;
+            --shadow-sm: 0 1px 2px rgba(12,25,41,0.05);
+            --shadow-md: 0 4px 12px rgba(12,25,41,0.08);
+            --shadow-lg: 0 8px 30px rgba(12,25,41,0.12);
+            --shadow-xl: 0 16px 48px rgba(12,25,41,0.16);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 20px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--gray-50);
+            min-height: 100vh;
+            color: var(--gray-700);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* ======================== HEADER ======================== */
+        .header {
+            background: linear-gradient(135deg, var(--navy-900) 0%, var(--navy-800) 60%, var(--navy-700) 100%);
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(90,154,90,0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(90,154,90,0.3), transparent);
+        }
+
+        .header-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 48px 40px 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(90,154,90,0.15);
+            border: 1px solid rgba(90,154,90,0.25);
+            color: var(--sage-200);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            border-radius: 100px;
+            margin-bottom: 16px;
+        }
+
+        .header-badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--sage-400);
+            border-radius: 50%;
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        .header h1 {
+            font-family: 'DM Sans', -apple-system, sans-serif;
+            color: var(--white);
+            font-size: 42px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 10px;
+            line-height: 1.1;
+        }
+
+        .header h1 .brand {
+            display: inline-block;
+            background: linear-gradient(135deg, #7aad7a 0%, #b8d1b8 50%, #7aad7a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            position: relative;
+        }
+
+        .header h1 .brand::after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--sage-400), transparent);
+            border-radius: 2px;
+        }
+
+        .header p {
+            color: var(--gray-400);
+            font-size: 15px;
+            font-weight: 400;
+            margin-top: 4px;
+            max-width: 600px;
+        }
+
+        /* ======================== CONTAINER ======================== */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 28px 40px 40px;
+        }
+
+        @media (max-width: 768px) {
+            .header-inner, .container {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+        }
+
+        /* ======================== DASHBOARD METRICS ======================== */
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+
+        @media (max-width: 1100px) {
+            .dashboard { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 600px) {
+            .dashboard { grid-template-columns: 1fr; }
+        }
+
+        .metric-card {
+            background: var(--white);
+            padding: 24px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--gray-200);
+            transition: box-shadow 0.25s ease, transform 0.25s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .metric-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .metric-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+        }
+
+        .metric-card:nth-child(1)::before { background: var(--navy-700); }
+        .metric-card:nth-child(2)::before { background: var(--blue-500); }
+        .metric-card:nth-child(3)::before { background: var(--sage-500); }
+        .metric-card:nth-child(4)::before { background: var(--amber-500); }
+
+        .metric-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: var(--gray-500);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .metric-value {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 30px;
+            font-weight: 800;
+            color: var(--navy-800);
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+        }
+
+        .metric-value.positive { color: var(--sage-600); }
+        .metric-value.negative { color: var(--red-600); }
+        .metric-value.warning { color: var(--amber-600); }
+
+        .metric-subtext {
+            font-size: 12px;
+            color: var(--gray-400);
+            margin-top: 8px;
+            font-weight: 500;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: var(--gray-100);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-top: 12px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--sage-400), var(--sage-500));
+            transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 3px;
+        }
+
+        /* ======================== MAIN GRID ======================== */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 968px) {
+            .main-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ======================== CARDS ======================== */
+        .card {
+            background: var(--white);
+            padding: 28px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--gray-200);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .card-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 16px;
+            color: var(--navy-800);
+            font-weight: 700;
+            letter-spacing: -0.2px;
+        }
+
+        .card-icon {
+            width: 34px;
+            height: 34px;
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .card-icon.navy { background: rgba(12,25,41,0.06); color: var(--navy-700); }
+        .card-icon.sage { background: rgba(90,154,90,0.1); color: var(--sage-600); }
+        .card-icon.blue { background: rgba(59,130,246,0.08); color: var(--blue-600); }
+        .card-icon.amber { background: rgba(245,158,11,0.1); color: var(--amber-600); }
+        .card-icon.red { background: rgba(239,68,68,0.08); color: var(--red-500); }
+
+        .card-icon svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* ======================== FORM ELEMENTS ======================== */
+        .balance-input-box {
+            background: var(--navy-900);
+            padding: 20px;
+            border-radius: var(--radius-md);
+            margin-bottom: 24px;
+        }
+
+        .balance-input-box label {
+            color: var(--gray-300);
+            font-weight: 600;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .balance-input-row {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .balance-input-row input {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.12);
+            color: var(--white);
+            font-size: 18px;
+            font-weight: 700;
+            padding: 12px 16px;
+            border-radius: var(--radius-sm);
+        }
+
+        .balance-input-row input::placeholder { color: var(--gray-500); }
+
+        .balance-input-row input:focus {
+            outline: none;
+            border-color: var(--sage-400);
+            box-shadow: 0 0 0 3px rgba(90,154,90,0.15);
+            background: rgba(255,255,255,0.12);
+        }
+
+        .balance-hint {
+            color: var(--gray-500);
+            font-size: 12px;
+            margin-top: 8px;
+        }
+
+        label {
+            display: block;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--gray-600);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-sm);
+            font-size: 14px;
+            transition: all 0.2s;
+            background: var(--white);
+            font-family: 'DM Sans', sans-serif;
+            color: var(--gray-700);
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--navy-600);
+            box-shadow: 0 0 0 3px rgba(12,25,41,0.06);
+        }
+
+        input[type="range"] {
+            padding: 0;
+            height: 6px;
+            background: var(--gray-200);
+            border-radius: 3px;
+            border: none;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--navy-800);
+            cursor: pointer;
+            border: 2px solid var(--white);
+            box-shadow: var(--shadow-sm);
+        }
+
+        input[type="range"]::-moz-range-thumb {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--navy-800);
+            cursor: pointer;
+            border: 2px solid var(--white);
+            box-shadow: var(--shadow-sm);
+        }
+
+        input[type="checkbox"] {
+            width: auto;
+            margin-right: 8px;
+            accent-color: var(--navy-800);
+        }
+
+        /* ======================== BUTTONS ======================== */
+        button {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            letter-spacing: 0.2px;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--navy-800);
+            color: var(--white);
+            padding: 12px 24px;
+            border-radius: var(--radius-sm);
+            font-size: 13px;
+            width: 100%;
+        }
+
+        .btn-primary:hover {
+            background: var(--navy-700);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-1px);
+        }
+
+        .btn-clear {
+            background: var(--red-500);
+            color: var(--white);
+            padding: 10px 16px;
+            border-radius: var(--radius-sm);
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .btn-clear:hover { background: var(--red-600); }
+
+        .btn-reset {
+            background: none;
+            color: var(--gray-400);
+            padding: 6px 14px;
+            border-radius: var(--radius-sm);
+            font-size: 11px;
+            font-weight: 600;
+            border: 1px solid var(--gray-200);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-reset:hover {
+            background: var(--red-50);
+            color: var(--red-600);
+            border-color: var(--red-200, #fecaca);
+        }
+
+        .delete-btn {
+            background: none;
+            color: var(--gray-400);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            border: 1px solid var(--gray-200);
+        }
+
+        .delete-btn:hover {
+            background: var(--red-50);
+            color: var(--red-600);
+            border-color: var(--red-400);
+        }
+
+        /* ======================== FORMS ======================== */
+        .transaction-form {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        @media (max-width: 500px) {
+            .form-row { grid-template-columns: 1fr; }
+        }
+
+        /* ======================== TRANSACTION LIST ======================== */
+        .transaction-list {
+            margin-top: 8px;
+            max-height: 380px;
+            overflow-y: auto;
+        }
+
+        .transaction-list::-webkit-scrollbar { width: 4px; }
+        .transaction-list::-webkit-scrollbar-track { background: transparent; }
+        .transaction-list::-webkit-scrollbar-thumb { background: var(--gray-300); border-radius: 2px; }
+
+        .transaction-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--gray-100);
+            font-size: 14px;
+        }
+
+        .transaction-item:last-child { border-bottom: none; }
+
+        .transaction-info { flex: 1; }
+
+        .transaction-name {
+            font-weight: 600;
+            color: var(--navy-800);
+            margin-bottom: 2px;
+            font-size: 13px;
+        }
+
+        .transaction-date {
+            font-size: 11px;
+            color: var(--gray-400);
+        }
+
+        .transaction-amount {
+            font-weight: 700;
+            font-size: 14px;
+            margin-right: 12px;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .transaction-amount.income { color: var(--sage-600); }
+        .transaction-amount.expense { color: var(--red-500); }
+
+        /* ======================== INFO BOXES ======================== */
+        .info-box {
+            padding: 18px 20px;
+            border-radius: var(--radius-md);
+            margin-top: 20px;
+        }
+
+        .info-box.sage {
+            background: var(--sage-50);
+            border-left: 3px solid var(--sage-500);
+        }
+
+        .info-box.amber {
+            background: var(--amber-50);
+            border-left: 3px solid var(--amber-500);
+        }
+
+        .info-box.blue {
+            background: var(--blue-50);
+            border-left: 3px solid var(--blue-500);
+        }
+
+        .info-box.navy {
+            background: rgba(12,25,41,0.03);
+            border-left: 3px solid var(--navy-700);
+        }
+
+        .info-box.red {
+            background: var(--red-50);
+            border-left: 3px solid var(--red-500);
+        }
+
+        .info-box-title {
+            font-weight: 700;
+            margin-bottom: 8px;
+            font-size: 13px;
+        }
+
+        .info-box.sage .info-box-title { color: var(--sage-800); }
+        .info-box.amber .info-box-title { color: var(--amber-800); }
+        .info-box.blue .info-box-title { color: var(--navy-800); }
+        .info-box.navy .info-box-title { color: var(--navy-800); }
+        .info-box.red .info-box-title { color: var(--red-700); }
+
+        .info-box-text {
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        .info-box.sage .info-box-text { color: var(--sage-700); }
+        .info-box.amber .info-box-text { color: var(--amber-700); }
+        .info-box.blue .info-box-text { color: var(--navy-700); }
+        .info-box.navy .info-box-text { color: var(--gray-600); }
+        .info-box.red .info-box-text { color: var(--red-700); }
+
+        /* ======================== ALERT ======================== */
+        .alert-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        @media (max-width: 768px) {
+            .alert-container { padding: 0 20px; }
+        }
+
+        .alert {
+            background: var(--amber-50);
+            border: 1px solid var(--amber-100);
+            border-left: 3px solid var(--amber-500);
+            padding: 18px 22px;
+            border-radius: var(--radius-md);
+            margin-bottom: 20px;
+        }
+
+        .alert-title {
+            font-weight: 700;
+            color: var(--amber-800);
+            margin-bottom: 6px;
+            font-size: 13px;
+        }
+
+        .alert-text {
+            color: var(--amber-700);
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        .getting-started {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            padding: 24px;
+            border-radius: var(--radius-lg);
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .getting-started .info-box-title { color: var(--navy-800); font-size: 15px; }
+        .getting-started .info-box-text { color: var(--gray-600); }
+
+        /* ======================== EMPTY STATE ======================== */
+        .empty-state {
+            text-align: center;
+            padding: 36px 20px;
+            color: var(--gray-400);
+        }
+
+        .empty-state-icon {
+            font-size: 36px;
+            margin-bottom: 10px;
+            opacity: 0.5;
+        }
+
+        .empty-state div:last-child {
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        /* ======================== CLINICIAN SPLIT ======================== */
+        .split-section {
+            background: var(--blue-50);
+            border: 1px solid var(--blue-100);
+            padding: 18px 20px;
+            border-radius: var(--radius-md);
+            margin-top: 16px;
+        }
+
+        .split-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .split-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 700;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .split-badge.you { background: var(--sage-100); color: var(--sage-700); }
+        .split-badge.them { background: var(--blue-100); color: var(--blue-600); }
+
+        /* ======================== FOOTER ======================== */
+        .footer {
+            background: var(--white);
+            padding: 36px 40px;
+            border-radius: var(--radius-lg);
+            margin-top: 28px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--gray-200);
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--navy-800);
+            margin-bottom: 4px;
+            letter-spacing: -0.3px;
+        }
+
+        .footer-tagline {
+            font-size: 13px;
+            color: var(--gray-500);
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .footer-divider {
+            height: 1px;
+            background: var(--gray-100);
+            margin: 20px 0;
+        }
+
+        .footer-name {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--navy-800);
+            margin-bottom: 4px;
+        }
+
+        .footer-title {
+            font-size: 13px;
+            color: var(--gray-500);
+            margin-bottom: 20px;
+        }
+
+        .footer-expertise {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 16px;
+        }
+
+        .expertise-badge {
+            background: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            padding: 6px 14px;
+            border-radius: 100px;
+            font-size: 12px;
+            color: var(--gray-600);
+            font-weight: 500;
+        }
+
+        .footer-cta {
+            background: var(--navy-800);
+            color: var(--white);
+            padding: 14px 28px;
+            border-radius: var(--radius-sm);
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 24px;
+            transition: all 0.2s ease;
+            letter-spacing: 0.2px;
+        }
+
+        .footer-cta:hover {
+            background: var(--navy-700);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .footer-link {
+            color: var(--navy-800);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--gray-200);
+            transition: all 0.2s ease;
+        }
+
+        .footer-link:hover {
+            background: var(--gray-50);
+            border-color: var(--gray-300);
+        }
+
+        .footer-note {
+            margin-top: 24px;
+            font-size: 12px;
+            color: var(--gray-400);
+        }
+
+        /* ======================== SECTION LABEL ======================== */
+        .section-label {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--gray-400);
+            margin-bottom: 14px;
+            padding-left: 2px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ======================== HEADER ======================== -->
+    <div class="header">
+        <div class="header-inner">
+            <div class="header-badge">Practice Finance Tool</div>
+            <h1><span class="brand">CER2</span> Practice Cash Flow Tracker</h1>
+            <p>Track when money actually arrives vs. when bills are due. Break the freeze response with data.</p>
+        </div>
+    </div>
+
+    <!-- ======================== ALERT CONTAINER ======================== -->
+    <div class="alert-container">
+        <div id="alert-container" style="margin-top: 20px;"></div>
+    </div>
+
+    <div class="container">
+
+        <!-- ======================== DASHBOARD METRICS ======================== -->
+        <div class="dashboard">
+            <div class="metric-card">
+                <div class="metric-label">Current Balance</div>
+                <div class="metric-value" id="current-balance">$0</div>
+                <div class="metric-subtext">Actual cash in account</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Available Cash</div>
+                <div class="metric-value" id="available-cash">$0</div>
+                <div class="metric-subtext">After pending bills</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Expected Income (30 days)</div>
+                <div class="metric-value positive" id="expected-income">$0</div>
+                <div class="metric-subtext">Pending insurance payments</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Buffer Status</div>
+                <div class="metric-value" id="buffer-status">$0</div>
+                <div class="metric-subtext" id="buffer-subtext">After payroll &amp; tax reserve | Target: $2,000</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="buffer-progress" style="width: 0%"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ======================== ROW 1: TRANSACTIONS + PAYROLL ======================== -->
+        <div class="section-label">Revenue &amp; Payroll</div>
+        <div class="main-grid">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <div class="card-icon navy">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
+                        </div>
+                        Add Transaction
+                    </div>
+                </div>
+
+                <div class="balance-input-box">
+                    <label>&#x1f4b0; Current Bank Balance</label>
+                    <div class="balance-input-row">
+                        <input type="number" id="current-balance-input" step="0.01" placeholder="Enter current balance" style="flex: 1;" oninput="updateCurrentBalance()">
+                        <button type="button" onclick="clearCurrentBalance()" class="btn-clear">Clear</button>
+                    </div>
+                    <div class="balance-hint">Start by entering how much is in your business account right now</div>
+                </div>
+
+                <form class="transaction-form" id="transaction-form">
+                    <div class="form-row">
+                        <div>
+                            <label>Type</label>
+                            <select id="type" required>
+                                <option value="income">Income (Insurance Payment)</option>
+                                <option value="expense">Expense (Bill)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label>Amount ($)</label>
+                            <input type="number" id="amount" step="0.01" required placeholder="0.00">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div>
+                            <label>Description</label>
+                            <input type="text" id="description" required placeholder="e.g., BCBS payment, Rent">
+                        </div>
+                        <div>
+                            <label>Date</label>
+                            <input type="date" id="date" required>
+                        </div>
+                    </div>
+
+                    <!-- CLINICIAN SPLIT -->
+                    <div class="split-section" id="split-section" style="display: none;">
+                        <label style="margin-bottom: 4px; color: var(--blue-600);">Clinician Split</label>
+                        <div class="split-row">
+                            <span style="font-size: 13px; color: var(--gray-600); white-space: nowrap;">Clinician gets:</span>
+                            <input type="number" id="clinician-split" min="0" max="100" value="60" style="width: 80px; text-align: center;" oninput="updateSplitPreview()">
+                            <span style="font-size: 13px; color: var(--gray-600);">%</span>
+                            <div class="split-badge you" id="your-split-badge">You keep: 40%</div>
+                        </div>
+                        <div style="margin-top: 8px; font-size: 12px; color: var(--gray-500);" id="split-preview"></div>
+                    </div>
+
+                    <div style="display: flex; align-items: center; gap: 8px; margin-top: 4px;">
+                        <input type="checkbox" id="has-clinician-split" onchange="toggleSplitSection()">
+                        <label style="margin: 0; text-transform: none; letter-spacing: 0; font-size: 13px; color: var(--gray-600);">Apply clinician split to this transaction</label>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Add Transaction</button>
+                </form>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <div class="card-icon sage">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+                        </div>
+                        Payroll Calculator
+                    </div>
+                </div>
+
+                <div style="margin-top: 4px;">
+                    <label>Target Monthly Salary</label>
+                    <input type="number" id="target-salary" value="2000" step="100" oninput="updateDashboard()">
+                    <div class="metric-subtext" style="margin-top: 8px;">Recommended: $2,000/month ($24K/year)</div>
+                </div>
+
+                <div id="payroll-recommendation" class="info-box sage">
+                    <div class="info-box-title">&#x1f4a1; Can You Make Payroll?</div>
+                    <div class="info-box-text" id="payroll-text">
+                        Enter your current balance to see if you can pay yourself.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ======================== ROW 2: TAX CALCULATOR + TAX SAVINGS ======================== -->
+        <div class="section-label">Tax Planning</div>
+        <div class="main-grid">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <div class="card-icon amber">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2zM10 8.5a.5.5 0 11-1 0 .5.5 0 011 0zm5 5a.5.5 0 11-1 0 .5.5 0 011 0z"/></svg>
+                        </div>
+                        Quarterly Tax Calculator
+                    </div>
+                    <button type="button" onclick="resetTaxCalculator()" class="btn-reset">Reset</button>
+                </div>
+
+                <div>
+                    <label>Business Structure</label>
+                    <select id="business-structure" onchange="updateBusinessStructure()">
+                        <option value="sole_proprietor">Sole Proprietor</option>
+                        <option value="single_llc">Single-Member LLC / PLLC</option>
+                        <option value="multi_llc">Multi-Member LLC / PLLC (Partnership)</option>
+                        <option value="s_corp">S-Corporation</option>
+                        <option value="c_corp">C-Corporation</option>
+                        <option value="pc_pa">Professional Corporation (PC/PA)</option>
+                        <option value="nonprofit">Nonprofit Organization</option>
+                    </select>
+                    <div class="metric-subtext" style="margin-top: 8px;" id="structure-description">
+                        Self-employment tax: 15.3% + Income tax: ~10% = ~25% total
+                    </div>
+                </div>
+
+                <div id="s-corp-options" style="display: none; margin-top: 16px;">
+                    <label style="text-transform: none; letter-spacing: 0; font-size: 13px;">
+                        <input type="checkbox" id="has-w2-salary" onchange="updateW2Status()">
+                        I pay myself a W-2 salary
+                    </label>
+                    <div id="w2-amount-container" style="display: none; margin-top: 12px;">
+                        <label>Monthly W-2 Salary Amount</label>
+                        <input type="number" id="w2-salary-amount" value="2000" step="100" oninput="updateTaxSettings()">
+                        <div class="metric-subtext" style="margin-top: 4px;">Payroll taxes already withheld from this amount</div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 16px;">
+                    <label>Tax Withholding Rate: <span id="withholding-rate-display" style="color: var(--navy-800); font-size: 16px; font-weight: 800;">25</span>%</label>
+                    <input type="range" id="withholding-rate" min="15" max="45" value="25" step="1" style="width: 100%; margin-top: 8px;" oninput="updateWithholdingRate()">
+                    <div style="display: flex; justify-content: space-between; margin-top: 4px;">
+                        <span class="metric-subtext">15%</span>
+                        <span class="metric-subtext">Most therapists: 25%</span>
+                        <span class="metric-subtext">45%</span>
+                    </div>
+                </div>
+
+                <div id="tax-calculation" class="info-box navy" style="margin-top: 20px;">
+                    <div class="info-box-title">&#x1f4ca; Quarterly Tax Estimate</div>
+                    <div class="info-box-text" id="tax-calculation-text">
+                        Add income and expenses to see your tax estimate.
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <div class="card-icon sage">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        </div>
+                        Tax Savings Tracker
+                    </div>
+                </div>
+
+                <div style="margin-top: 4px;">
+                    <label>Current Tax Savings Balance</label>
+                    <input type="number" id="tax-savings-balance" value="0" step="100" oninput="updateTaxSavings()">
+                    <div class="metric-subtext" style="margin-top: 8px;">How much you've set aside for taxes</div>
+                </div>
+
+                <div id="tax-savings-recommendation" class="info-box sage" style="margin-top: 20px;">
+                    <div class="info-box-title">&#x1f4b0; Quarterly Tax Deadlines</div>
+                    <div class="info-box-text" id="tax-deadlines-text">
+                        <strong>Q2 2026:</strong> June 15, 2026<br>
+                        <strong>Q3 2026:</strong> September 15, 2026<br>
+                        <strong>Q4 2026:</strong> January 15, 2027
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ======================== ROW 3: EXPECTED INCOME + UPCOMING BILLS ======================== -->
+        <div class="section-label">Cash Flow Forecast</div>
+        <div class="main-grid">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <div class="card-icon sage">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+                        </div>
+                        Expected Income
+                    </div>
+                </div>
+                <div class="transaction-list" id="income-list">
+                    <div class="empty-state">
+                        <div class="empty-state-icon">&#x1f4e5;</div>
+                        <div>No expected income yet</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <div class="card-icon red">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"/></svg>
+                        </div>
+                        Upcoming Bills
+                    </div>
+                </div>
+                <div class="transaction-list" id="expense-list">
+                    <div class="empty-state">
+                        <div class="empty-state-icon">&#x1f4e4;</div>
+                        <div>No upcoming bills</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ======================== FOOTER ======================== -->
+        <div class="footer">
+            <div class="footer-logo">ROBINSON HOUSE BEHAVIORAL HEALTH</div>
+            <div class="footer-tagline">Healthcare AI Solutions | Telehealth Systems | Practice Management</div>
+
+            <div class="footer-divider"></div>
+
+            <div class="footer-name">Dr. Cleveland Robinson, LPC-S</div>
+            <div class="footer-title">Healthcare AI Consultant | Telehealth Expert | Implicit Bias Trainer</div>
+
+            <div class="footer-expertise">
+                <span class="expertise-badge">&#x1f3af; School-Based Telehealth</span>
+                <span class="expertise-badge">&#x1f916; Healthcare AI Implementation</span>
+                <span class="expertise-badge">&#x1f4ca; Practice Management Systems</span>
+                <span class="expertise-badge">&#x1f393; Master Trainer - Implicit Bias</span>
+            </div>
+
+            <a href="mailto:cleveland@incrhouse.com" class="footer-cta">
+                Need help with your practice or telehealth system? Let's talk &rarr;
+            </a>
+
+            <div class="footer-links">
+                <!-- UPDATE YOUR LINKEDIN URL BELOW -->
+                <a href="https://www.linkedin.com/in/cleveland-robinson-ed-d-lpc-s-68a8935b/" class="footer-link" target="_blank">LinkedIn</a>
+                <a href="https://robinsonhbh.com" class="footer-link" target="_blank">Visit Website</a>
+                <a href="tel:208-998-0162" class="footer-link">&#x1f4de; 208-998-0162</a>
+            </div>
+
+            <div class="footer-note">
+                This tool is free for mental health professionals. Share it with your colleagues.
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ======================== JAVASCRIPT ======================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            // ==================== DATA ====================
+            let transactions = JSON.parse(localStorage.getItem('cer2-transactions') || '[]');
+            let currentBalance = parseFloat(localStorage.getItem('cer2-balance') || '0');
+            let taxSettings = JSON.parse(localStorage.getItem('cer2-tax-settings') || JSON.stringify({
+                businessStructure: 'sole_proprietor',
+                withholdingRate: 25,
+                hasW2Salary: false,
+                monthlyW2Amount: 0
+            }));
+            let taxSavingsBalance = parseFloat(localStorage.getItem('cer2-tax-savings') || '0');
+
+            // Initialize inputs
+            document.getElementById('date').valueAsDate = new Date();
+            document.getElementById('current-balance-input').value = currentBalance > 0 ? currentBalance : '';
+            document.getElementById('tax-savings-balance').value = taxSavingsBalance;
+
+            // ==================== SAVE ====================
+            function saveData() {
+                localStorage.setItem('cer2-transactions', JSON.stringify(transactions));
+                localStorage.setItem('cer2-balance', currentBalance.toString());
+                localStorage.setItem('cer2-tax-settings', JSON.stringify(taxSettings));
+                localStorage.setItem('cer2-tax-savings', taxSavingsBalance.toString());
+            }
+
+            // ==================== CURRENT BALANCE ====================
+            function updateCurrentBalance() {
+                const value = parseFloat(document.getElementById('current-balance-input').value);
+                currentBalance = isNaN(value) ? 0 : value;
+                saveData();
+                updateDashboard();
+                calculateTaxes();
+            }
+
+            function clearCurrentBalance() {
+                currentBalance = 0;
+                document.getElementById('current-balance-input').value = '';
+                saveData();
+                updateDashboard();
+                calculateTaxes();
+            }
+
+            // ==================== CLINICIAN SPLIT ====================
+            function toggleSplitSection() {
+                const checked = document.getElementById('has-clinician-split').checked;
+                document.getElementById('split-section').style.display = checked ? 'block' : 'none';
+                if (checked) updateSplitPreview();
+            }
+
+            function updateSplitPreview() {
+                const splitPct = parseFloat(document.getElementById('clinician-split').value) || 0;
+                const yourPct = 100 - splitPct;
+                document.getElementById('your-split-badge').textContent = 'You keep: ' + yourPct + '%';
+
+                const amount = parseFloat(document.getElementById('amount').value) || 0;
+                const preview = document.getElementById('split-preview');
+                if (amount > 0) {
+                    const clinicianAmt = (amount * splitPct / 100).toFixed(0);
+                    const yourAmt = (amount * yourPct / 100).toFixed(0);
+                    preview.innerHTML = 'On $' + amount.toFixed(0) + ': Clinician gets $' + clinicianAmt + ' &middot; You keep $' + yourAmt;
+                } else {
+                    preview.textContent = 'Enter an amount above to see the split preview';
+                }
+            }
+
+            // Listen for amount changes to update split preview
+            document.getElementById('amount').addEventListener('input', function() {
+                if (document.getElementById('has-clinician-split').checked) {
+                    updateSplitPreview();
+                }
+            });
+
+            // ==================== FORM SUBMISSION ====================
+            document.getElementById('transaction-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                try {
+                    const typeVal = document.getElementById('type').value;
+                    let amountVal = parseFloat(document.getElementById('amount').value);
+                    const descVal = document.getElementById('description').value;
+                    const dateVal = document.getElementById('date').value;
+
+                    if (!amountVal || amountVal <= 0) { alert('Please enter a valid amount'); return; }
+                    if (!descVal || descVal.trim() === '') { alert('Please enter a description'); return; }
+                    if (!dateVal) { alert('Please select a date'); return; }
+
+                    // Apply clinician split if checked
+                    const hasSplit = document.getElementById('has-clinician-split').checked;
+                    let splitInfo = null;
+                    if (hasSplit && typeVal === 'income') {
+                        const splitPct = parseFloat(document.getElementById('clinician-split').value) || 0;
+                        const yourPct = 100 - splitPct;
+                        const originalAmount = amountVal;
+                        amountVal = amountVal * (yourPct / 100);
+                        splitInfo = {
+                            originalAmount: originalAmount,
+                            clinicianPercent: splitPct,
+                            yourPercent: yourPct
+                        };
+                    }
+
+                    const transaction = {
+                        id: Date.now(),
+                        type: typeVal,
+                        amount: amountVal,
+                        description: descVal + (splitInfo ? ' (' + splitInfo.yourPercent + '% after split)' : ''),
+                        date: dateVal,
+                        timestamp: new Date().toISOString(),
+                        splitInfo: splitInfo
+                    };
+
+                    transactions.push(transaction);
+                    saveData();
+                    updateDashboard();
+                    renderTransactions();
+                    calculateTaxes();
+
+                    document.getElementById('transaction-form').reset();
+                    document.getElementById('date').valueAsDate = new Date();
+                    document.getElementById('has-clinician-split').checked = false;
+                    document.getElementById('split-section').style.display = 'none';
+
+                } catch (error) {
+                    console.error('Error adding transaction:', error);
+                    alert('Error adding transaction. Please try again.');
+                }
+            });
+
+            // ==================== DELETE TRANSACTION ====================
+            function deleteTransaction(id) {
+                transactions = transactions.filter(t => t.id !== id);
+                saveData();
+                updateDashboard();
+                renderTransactions();
+                calculateTaxes();
+            }
+
+            // ==================== CALCULATE METRICS ====================
+            function parseLocalDate(dateStr) {
+                // Parse YYYY-MM-DD as local date, not UTC
+                const parts = dateStr.split('-');
+                return new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
+            }
+
+            function calculateMetrics() {
+                const today = new Date();
+                today.setHours(0, 0, 0, 0);
+                const thirtyDaysFromNow = new Date(today.getTime() + 30 * 24 * 60 * 60 * 1000);
+
+                const futureIncome = transactions
+                    .filter(t => {
+                        const d = parseLocalDate(t.date);
+                        return t.type === 'income' && d <= thirtyDaysFromNow && d >= today;
+                    })
+                    .reduce((sum, t) => sum + t.amount, 0);
+
+                const futureExpenses = transactions
+                    .filter(t => {
+                        const d = parseLocalDate(t.date);
+                        return t.type === 'expense' && d <= thirtyDaysFromNow && d >= today;
+                    })
+                    .reduce((sum, t) => sum + t.amount, 0);
+
+                const availableCash = currentBalance + futureIncome - futureExpenses;
+
+                // Buffer = what's left after payroll AND tax reserve
+                const targetSalary = parseFloat(document.getElementById('target-salary').value) || 0;
+                const taxRate = taxSettings.withholdingRate / 100;
+                const taxReserve = futureIncome * taxRate;
+                const bufferAmount = availableCash - targetSalary - taxReserve;
+                const bufferTarget = targetSalary > 0 ? targetSalary : 2000;
+                const bufferProgress = Math.min(Math.max((bufferAmount / bufferTarget) * 100, 0), 100);
+
+                return { futureIncome, futureExpenses, availableCash, bufferAmount, bufferProgress, bufferTarget, targetSalary, taxReserve };
+            }
+
+            // ==================== UPDATE DASHBOARD ====================
+            function formatCurrency(value) {
+                if (value < 0) {
+                    return '-$' + Math.abs(value).toLocaleString('en-US', {maximumFractionDigits: 0});
+                }
+                return '$' + value.toLocaleString('en-US', {maximumFractionDigits: 0});
+            }
+
+            function updateDashboard() {
+                const { futureIncome, futureExpenses, availableCash, bufferAmount, bufferProgress, bufferTarget, targetSalary, taxReserve } = calculateMetrics();
+
+                document.getElementById('current-balance').textContent = formatCurrency(currentBalance);
+                document.getElementById('current-balance').className = 'metric-value ' +
+                    (currentBalance > 2000 ? 'positive' : currentBalance > 500 ? 'warning' : 'negative');
+
+                document.getElementById('available-cash').textContent = formatCurrency(availableCash);
+                document.getElementById('available-cash').className = 'metric-value ' +
+                    (availableCash > 1000 ? 'positive' : availableCash > 0 ? 'warning' : 'negative');
+
+                document.getElementById('expected-income').textContent = formatCurrency(futureIncome);
+
+                document.getElementById('buffer-status').textContent = formatCurrency(bufferAmount);
+                document.getElementById('buffer-status').className = 'metric-value ' +
+                    (bufferAmount >= bufferTarget ? 'positive' : bufferAmount > 0 ? 'warning' : 'negative');
+                document.getElementById('buffer-progress').style.width = bufferProgress + '%';
+
+                // Buffer progress bar color changes
+                const progressFill = document.getElementById('buffer-progress');
+                if (bufferAmount >= bufferTarget) {
+                    progressFill.style.background = 'linear-gradient(90deg, var(--sage-400), var(--sage-500))';
+                } else if (bufferAmount > 0) {
+                    progressFill.style.background = 'linear-gradient(90deg, var(--amber-500), var(--amber-600))';
+                } else {
+                    progressFill.style.background = 'linear-gradient(90deg, var(--red-400), var(--red-500))';
+                }
+
+                // Update buffer subtext with actual target
+                document.getElementById('buffer-subtext').textContent = 'After payroll & tax reserve | Target: ' + formatCurrency(bufferTarget);
+
+                // Payroll recommendation — changes color based on status
+                const payrollText = document.getElementById('payroll-text');
+                const payrollBox = document.getElementById('payroll-recommendation');
+
+                if (currentBalance === 0 && transactions.length === 0) {
+                    payrollText.innerHTML = 'Enter your current balance to see if you can pay yourself.';
+                    payrollBox.className = 'info-box navy';
+                    payrollBox.querySelector('.info-box-title').innerHTML = '&#x1f4a1; Can You Make Payroll?';
+                } else if (availableCash >= targetSalary) {
+                    payrollText.innerHTML = '&#x2705; <strong>YES!</strong> You have ' + formatCurrency(availableCash) + ' available after bills. You can safely pay yourself ' + formatCurrency(targetSalary) + ' this month.';
+                    payrollBox.className = 'info-box sage';
+                    payrollBox.querySelector('.info-box-title').innerHTML = '&#x2705; Payroll: Good to Go';
+                } else if (availableCash >= targetSalary * 0.5) {
+                    payrollText.innerHTML = '&#x26a0;&#xfe0f; <strong>PARTIAL:</strong> You have ' + formatCurrency(availableCash) + ' available. Consider paying yourself ' + formatCurrency(availableCash * 0.7) + ' and building your buffer first.';
+                    payrollBox.className = 'info-box amber';
+                    payrollBox.querySelector('.info-box-title').innerHTML = '&#x26a0;&#xfe0f; Payroll: Caution';
+                } else {
+                    payrollText.innerHTML = '&#x1f6a8; <strong>CANNOT MAKE PAYROLL.</strong> You only have ' + formatCurrency(availableCash) + ' available after bills. You need ' + formatCurrency(targetSalary) + ' to pay yourself. Focus on collecting outstanding insurance payments immediately.';
+                    payrollBox.className = 'info-box red';
+                    payrollBox.querySelector('.info-box-title').innerHTML = '&#x1f6a8; Payroll: Not Available';
+                }
+
+                // Alerts
+                const alertContainer = document.getElementById('alert-container');
+                if (availableCash < 0 && (currentBalance > 0 || transactions.length > 0)) {
+                    alertContainer.innerHTML = '<div class="alert" style="background: var(--red-50); border-color: var(--red-100); border-left-color: var(--red-500);"><div class="alert-title" style="color: var(--red-700);">&#x1f6a8; NEGATIVE CASH FLOW</div><div class="alert-text" style="color: var(--red-700);">Your available cash after upcoming bills is <strong>' + formatCurrency(availableCash) + '</strong>. You are projected to be in the red. Immediate action needed: (1) Follow up on all outstanding insurance claims, (2) Delay non-essential expenses, (3) Consider which bills can be pushed to next cycle.</div></div>';
+                } else if (availableCash < 500 && (currentBalance > 0 || transactions.length > 0)) {
+                    alertContainer.innerHTML = '<div class="alert"><div class="alert-title">&#x26a0;&#xfe0f; Cash Flow Warning</div><div class="alert-text">Your available cash after upcoming bills is only ' + formatCurrency(availableCash) + '. This is below your safety threshold. Consider: (1) Following up on late insurance payments, (2) Delaying non-critical expenses, or (3) Taking a small business line of credit for buffer.</div></div>';
+                } else if (currentBalance === 0 && transactions.length === 0) {
+                    alertContainer.innerHTML = '<div class="getting-started"><div class="info-box-title">&#x1f44b; Getting Started</div><div class="info-box-text"><strong>Step 1:</strong> Enter your current bank balance in the dark box above.<br><br><strong>Step 2:</strong> Add all expected insurance payments in the next 30 days.<br><br><strong>Step 3:</strong> Add all bills due in the next 30 days with their exact due dates.<br><br>The dashboard will show your available cash, expected income, and whether you can safely pay yourself.</div></div>';
+                } else {
+                    alertContainer.innerHTML = '';
+                }
+            }
+
+            // ==================== RENDER TRANSACTIONS ====================
+            function renderTransactions() {
+                const today = new Date();
+                today.setHours(0, 0, 0, 0);
+                const thirtyDaysFromNow = new Date(today.getTime() + 30 * 24 * 60 * 60 * 1000);
+
+                const futureIncome = transactions
+                    .filter(t => {
+                        const d = parseLocalDate(t.date);
+                        return t.type === 'income' && d <= thirtyDaysFromNow && d >= today;
+                    })
+                    .sort((a, b) => parseLocalDate(a.date) - parseLocalDate(b.date));
+
+                const futureExpenses = transactions
+                    .filter(t => {
+                        const d = parseLocalDate(t.date);
+                        return t.type === 'expense' && d <= thirtyDaysFromNow && d >= today;
+                    })
+                    .sort((a, b) => parseLocalDate(a.date) - parseLocalDate(b.date));
+
+                const incomeList = document.getElementById('income-list');
+                if (futureIncome.length === 0) {
+                    incomeList.innerHTML = '<div class="empty-state"><div class="empty-state-icon">&#x1f4e5;</div><div>No expected income in next 30 days</div></div>';
+                } else {
+                    incomeList.innerHTML = futureIncome.map(t => '<div class="transaction-item"><div class="transaction-info"><div class="transaction-name">' + t.description + '</div><div class="transaction-date">' + parseLocalDate(t.date).toLocaleDateString() + '</div></div><div class="transaction-amount income">+' + formatCurrency(t.amount) + '</div><button class="delete-btn" onclick="deleteTransaction(' + t.id + ')">Remove</button></div>').join('');
+                }
+
+                const expenseList = document.getElementById('expense-list');
+                if (futureExpenses.length === 0) {
+                    expenseList.innerHTML = '<div class="empty-state"><div class="empty-state-icon">&#x1f4e4;</div><div>No upcoming bills</div></div>';
+                } else {
+                    expenseList.innerHTML = futureExpenses.map(t => '<div class="transaction-item"><div class="transaction-info"><div class="transaction-name">' + t.description + '</div><div class="transaction-date">' + parseLocalDate(t.date).toLocaleDateString() + '</div></div><div class="transaction-amount expense">-' + formatCurrency(t.amount) + '</div><button class="delete-btn" onclick="deleteTransaction(' + t.id + ')">Remove</button></div>').join('');
+                }
+            }
+
+            // ==================== TAX CALCULATOR ====================
+            function updateBusinessStructure() {
+                const structure = document.getElementById('business-structure').value;
+                taxSettings.businessStructure = structure;
+
+                const recommendedRates = {
+                    'sole_proprietor': 25,
+                    'single_llc': 25,
+                    'multi_llc': 25,
+                    's_corp': 18,
+                    'c_corp': 21,
+                    'pc_pa': 25,
+                    'nonprofit': 15
+                };
+
+                document.getElementById('withholding-rate').value = recommendedRates[structure];
+                taxSettings.withholdingRate = recommendedRates[structure];
+                updateWithholdingRate();
+
+                const descriptions = {
+                    'sole_proprietor': 'Self-employment tax: 15.3% + Income tax: ~10% = ~25% total',
+                    'single_llc': 'Taxed as sole proprietor. SE tax: 15.3% + Income tax: ~10% = ~25% total',
+                    'multi_llc': 'Taxed as partnership. SE tax: 15.3% + Income tax: ~10% = ~25% total',
+                    's_corp': 'Tax on distributions only (W-2 payroll taxes already withheld) = ~18%',
+                    'c_corp': 'Corporate tax rate: 21%. Dividends taxed separately on personal return.',
+                    'pc_pa': 'Taxed like sole prop or S-Corp depending on election. Default: ~25%',
+                    'nonprofit': 'No income tax on mission-related revenue. Payroll taxes still apply: ~15%'
+                };
+                document.getElementById('structure-description').textContent = descriptions[structure];
+
+                // Show W-2 salary options for structures that use payroll
+                const showW2Options = (structure === 's_corp' || structure === 'c_corp' || structure === 'pc_pa');
+                document.getElementById('s-corp-options').style.display = showW2Options ? 'block' : 'none';
+
+                saveData();
+                calculateTaxes();
+            }
+
+            function updateW2Status() {
+                const hasW2 = document.getElementById('has-w2-salary').checked;
+                taxSettings.hasW2Salary = hasW2;
+                document.getElementById('w2-amount-container').style.display = hasW2 ? 'block' : 'none';
+                saveData();
+                calculateTaxes();
+            }
+
+            function updateWithholdingRate() {
+                const rate = document.getElementById('withholding-rate').value;
+                taxSettings.withholdingRate = parseFloat(rate);
+                document.getElementById('withholding-rate-display').textContent = rate;
+                saveData();
+                calculateTaxes();
+            }
+
+            function updateTaxSettings() {
+                taxSettings.monthlyW2Amount = parseFloat(document.getElementById('w2-salary-amount').value) || 0;
+                saveData();
+                calculateTaxes();
+            }
+
+            function updateTaxSavings() {
+                taxSavingsBalance = parseFloat(document.getElementById('tax-savings-balance').value) || 0;
+                saveData();
+                calculateTaxes();
+            }
+
+            function resetTaxCalculator() {
+                if (confirm('Reset tax calculator to default settings? This will not delete your transactions.')) {
+                    taxSettings = {
+                        businessStructure: 'sole_proprietor',
+                        withholdingRate: 25,
+                        hasW2Salary: false,
+                        monthlyW2Amount: 0
+                    };
+                    taxSavingsBalance = 0;
+
+                    document.getElementById('business-structure').value = 'sole_proprietor';
+                    document.getElementById('withholding-rate').value = 25;
+                    document.getElementById('withholding-rate-display').textContent = '25';
+                    document.getElementById('has-w2-salary').checked = false;
+                    document.getElementById('w2-salary-amount').value = 2000;
+                    document.getElementById('tax-savings-balance').value = 0;
+                    document.getElementById('s-corp-options').style.display = 'none';
+                    document.getElementById('w2-amount-container').style.display = 'none';
+                    document.getElementById('structure-description').textContent = 'Self-employment tax: 15.3% + Income tax: ~10% = ~25% total';
+
+                    saveData();
+                    calculateTaxes();
+                }
+            }
+
+            function calculateTaxes() {
+                const today = new Date();
+                today.setHours(0, 0, 0, 0);
+                const ninetyDaysFromNow = new Date(today.getTime() + 90 * 24 * 60 * 60 * 1000);
+
+                const futureTransactions = transactions.filter(t => {
+                    const d = parseLocalDate(t.date);
+                    return d >= today && d <= ninetyDaysFromNow;
+                });
+
+                const grossIncome = futureTransactions.filter(t => t.type === 'income').reduce((sum, t) => sum + t.amount, 0);
+                const expenses = futureTransactions.filter(t => t.type === 'expense').reduce((sum, t) => sum + t.amount, 0);
+                const netProfit = grossIncome - expenses;
+
+                let taxCalcText = '';
+                let quarterlyEstimate = 0;
+
+                if (grossIncome <= 0 || transactions.length === 0) {
+                    taxCalcText = 'Add income transactions to calculate your quarterly tax estimate.';
+                } else {
+                    const structure = taxSettings.businessStructure;
+                    const rate = taxSettings.withholdingRate / 100;
+                    const taxableAmount = Math.max(netProfit, 0);
+
+                    // Build the income/expense summary lines
+                    let summaryLines = 'Gross Income: ' + formatCurrency(grossIncome) + '<br>';
+                    if (expenses > 0) {
+                        summaryLines += 'Business Expenses: -' + formatCurrency(expenses) + '<br>';
+                        summaryLines += '<strong>Net Profit: ' + formatCurrency(netProfit) + '</strong><br>';
+                    }
+
+                    if (taxableAmount <= 0) {
+                        taxCalcText = '<strong>Next 90 Days Projection:</strong><br>' +
+                            summaryLines + '<br>' +
+                            '&#x2705; Your expenses exceed your income. No estimated tax due this quarter.<br>' +
+                            '<em>Note: You may still owe self-employment tax. Consult your CPA.</em>';
+                    } else if ((structure === 's_corp' || structure === 'c_corp' || structure === 'pc_pa') && taxSettings.hasW2Salary) {
+                        const w2Quarterly = taxSettings.monthlyW2Amount * 3;
+                        quarterlyEstimate = taxableAmount * rate;
+
+                        const structureLabel = structure === 'c_corp' ? 'Corporate Profit' : 'Distributions';
+                        const taxLabel = structure === 'c_corp' ? 'Corporate Tax' : 'Tax on Distributions';
+
+                        taxCalcText =
+                            '<strong>Next 90 Days Projection:</strong><br>' +
+                            summaryLines + '<br>' +
+                            'W-2 Salary (90 days): ' + formatCurrency(w2Quarterly) + '<br>' +
+                            '&#x2713; <em>Payroll taxes already withheld</em><br><br>' +
+                            '<strong>' + taxLabel + ' (' + (rate * 100).toFixed(0) + '%):</strong> ' + formatCurrency(quarterlyEstimate) + '<br><br>' +
+                            '&#x1f4a1; <strong>Set aside ' + formatCurrency(quarterlyEstimate) + ' now</strong> to cover this quarter\'s tax bill';
+                        quarterlyEstimate = taxableAmount * rate;
+                        taxCalcText =
+                            '<strong>Next 90 Days Projection:</strong><br>' +
+                            summaryLines + '<br>' +
+                            'Corporate Tax Rate (21%): ' + formatCurrency(taxableAmount * 0.21) + '<br>' +
+                            '<em>Note: Dividends to owners are taxed separately on personal returns.</em><br><br>' +
+                            '<strong>Total Corporate Tax (' + (rate * 100).toFixed(0) + '%):</strong> ' + formatCurrency(quarterlyEstimate) + '<br><br>' +
+                            '&#x1f4a1; <strong>Set aside ' + formatCurrency(quarterlyEstimate) + ' now</strong> to cover this quarter\'s tax bill';
+
+                    } else if (structure === 'nonprofit') {
+                        const payrollTax = taxableAmount * 0.153;
+                        quarterlyEstimate = taxableAmount * rate;
+                        taxCalcText =
+                            '<strong>Next 90 Days Projection:</strong><br>' +
+                            summaryLines.replace('Gross Income', 'Expected Revenue').replace('Net Profit', 'Net Revenue') + '<br>' +
+                            '&#x2713; <em>No income tax on mission-related revenue</em><br>' +
+                            'Payroll Tax Obligation (15.3%): ' + formatCurrency(payrollTax) + '<br><br>' +
+                            '<strong>Total Tax Reserve (' + (rate * 100).toFixed(0) + '%):</strong> ' + formatCurrency(quarterlyEstimate) + '<br><br>' +
+                            '&#x1f4a1; <strong>Set aside ' + formatCurrency(quarterlyEstimate) + ' now</strong> to cover this quarter\'s payroll taxes';
+
+                    } else if (structure === 'sole_proprietor' || structure === 'single_llc' || structure === 'multi_llc' || structure === 'pc_pa') {
+                        const seRate = 0.153;
+                        const incomeRate = rate - seRate;
+                        const selfEmploymentTax = taxableAmount * seRate;
+                        const incomeTax = taxableAmount * Math.max(incomeRate, 0);
+                        quarterlyEstimate = taxableAmount * rate;
+
+                        const structureName = {
+                            'sole_proprietor': 'Sole Proprietor',
+                            'single_llc': 'Single-Member LLC/PLLC',
+                            'multi_llc': 'Multi-Member LLC/PLLC',
+                            'pc_pa': 'Professional Corporation'
+                        }[structure];
+
+                        taxCalcText =
+                            '<strong>Next 90 Days Projection (' + structureName + '):</strong><br>' +
+                            summaryLines + '<br>' +
+                            'Self-Employment Tax (15.3%): ' + formatCurrency(selfEmploymentTax) + '<br>' +
+                            'Income Tax (~' + (Math.max(incomeRate, 0) * 100).toFixed(0) + '%): ' + formatCurrency(incomeTax) + '<br>' +
+                            '<strong>Total Estimated Tax: ' + formatCurrency(quarterlyEstimate) + '</strong><br><br>' +
+                            '&#x1f4a1; <strong>Set aside ' + formatCurrency(quarterlyEstimate) + ' now</strong> to cover this quarter\'s tax bill';
+
+                    } else {
+                        const seRate = 0.153;
+                        const incomeRate = rate - seRate;
+                        const selfEmploymentTax = taxableAmount * seRate;
+                        const incomeTax = taxableAmount * Math.max(incomeRate, 0);
+                        quarterlyEstimate = taxableAmount * rate;
+
+                        taxCalcText =
+                            '<strong>Next 90 Days Projection:</strong><br>' +
+                            summaryLines + '<br>' +
+                            'Self-Employment Tax (15.3%): ' + formatCurrency(selfEmploymentTax) + '<br>' +
+                            'Income Tax (~' + (Math.max(incomeRate, 0) * 100).toFixed(0) + '%): ' + formatCurrency(incomeTax) + '<br>' +
+                            '<strong>Total Estimated Tax: ' + formatCurrency(quarterlyEstimate) + '</strong><br><br>' +
+                            '&#x1f4a1; <strong>Set aside ' + formatCurrency(quarterlyEstimate) + ' now</strong> to cover this quarter\'s tax bill';
+                    }
+                }
+
+                document.getElementById('tax-calculation-text').innerHTML = taxCalcText;
+
+                // Tax savings status
+                if (quarterlyEstimate > 0) {
+                    const shortfall = quarterlyEstimate - taxSavingsBalance;
+                    let savingsStatusText = '';
+                    const savingsBox = document.getElementById('tax-savings-recommendation');
+                    const savingsTitle = savingsBox.querySelector('.info-box-title');
+
+                    if (taxSavingsBalance >= quarterlyEstimate) {
+                        savingsBox.className = 'info-box sage';
+                        savingsTitle.innerHTML = '&#x2705; Tax Savings: On Track';
+                        savingsStatusText =
+                            '&#x2705; <strong>You\'re covered!</strong><br><br>' +
+                            'Tax Savings Balance: ' + formatCurrency(taxSavingsBalance) + '<br>' +
+                            'Estimated Quarterly Payment: ' + formatCurrency(quarterlyEstimate) + '<br>' +
+                            'Surplus: ' + formatCurrency(taxSavingsBalance - quarterlyEstimate);
+                    } else if (taxSavingsBalance >= quarterlyEstimate * 0.5) {
+                        savingsBox.className = 'info-box amber';
+                        savingsTitle.innerHTML = '&#x26a0;&#xfe0f; Tax Savings: Getting There';
+                        savingsStatusText =
+                            '&#x26a0;&#xfe0f; <strong>Getting There</strong><br><br>' +
+                            'Tax Savings Balance: ' + formatCurrency(taxSavingsBalance) + '<br>' +
+                            'Estimated Quarterly Payment: ' + formatCurrency(quarterlyEstimate) + '<br>' +
+                            'Still Need: ' + formatCurrency(shortfall) + '<br><br>' +
+                            'Save ' + formatCurrency(shortfall / 2) + '/month for next 2 months to catch up.';
+                    } else {
+                        savingsBox.className = 'info-box red';
+                        savingsTitle.innerHTML = '&#x1f6a8; Tax Savings: Behind Schedule';
+                        savingsStatusText =
+                            '&#x1f6a8; <strong>Behind Schedule</strong><br><br>' +
+                            'Tax Savings Balance: ' + formatCurrency(taxSavingsBalance) + '<br>' +
+                            'Estimated Quarterly Payment: ' + formatCurrency(quarterlyEstimate) + '<br>' +
+                            '<strong style="color: var(--red-600);">Shortfall: ' + formatCurrency(shortfall) + '</strong><br><br>' +
+                            'You need to set aside ' + formatCurrency(shortfall) + ' before your next quarterly payment.';
+                    }
+
+                    document.getElementById('tax-deadlines-text').innerHTML = savingsStatusText +
+                        '<br><br><strong>&#x1f4b0; Upcoming Quarterly Deadlines:</strong><br>' +
+                        'Q2 2026: June 15, 2026<br>' +
+                        'Q3 2026: September 15, 2026<br>' +
+                        'Q4 2026: January 15, 2027';
+                }
+            }
+
+            // ==================== INIT TAX CALCULATOR ====================
+            function initializeTaxCalculator() {
+                document.getElementById('business-structure').value = taxSettings.businessStructure;
+                document.getElementById('withholding-rate').value = taxSettings.withholdingRate;
+                document.getElementById('withholding-rate-display').textContent = taxSettings.withholdingRate;
+                document.getElementById('has-w2-salary').checked = taxSettings.hasW2Salary;
+                document.getElementById('w2-salary-amount').value = taxSettings.monthlyW2Amount;
+                updateBusinessStructure();
+            }
+
+            // ==================== GLOBAL FUNCTIONS ====================
+            window.deleteTransaction = deleteTransaction;
+            window.updateCurrentBalance = updateCurrentBalance;
+            window.clearCurrentBalance = clearCurrentBalance;
+            window.updateDashboard = updateDashboard;
+            window.updateBusinessStructure = updateBusinessStructure;
+            window.updateW2Status = updateW2Status;
+            window.updateWithholdingRate = updateWithholdingRate;
+            window.updateTaxSettings = updateTaxSettings;
+            window.updateTaxSavings = updateTaxSavings;
+            window.resetTaxCalculator = resetTaxCalculator;
+            window.toggleSplitSection = toggleSplitSection;
+            window.updateSplitPreview = updateSplitPreview;
+
+            // ==================== INITIAL RENDER ====================
+            updateDashboard();
+            renderTransactions();
+            initializeTaxCalculator();
+
+        }); // End DOMContentLoaded
+    </script>
+</body>
+</html>

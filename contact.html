@@ -665,6 +665,38 @@ footer {
   color: var(--warm-gray);
 }
 
+
+/* ── NAV DROPDOWN ── */
+.nav-dropdown { position: relative; }
+.nav-dropdown-toggle { display: flex; align-items: center; gap: 4px; cursor: pointer; }
+.nav-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ffffff;
+  border: 1px solid rgba(30,61,47,0.1);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(30,61,47,0.12);
+  padding: 8px;
+  min-width: 220px;
+  list-style: none;
+  z-index: 200;
+}
+.nav-dropdown:hover .nav-dropdown-menu { display: block; }
+.nav-dropdown-menu li a {
+  display: block;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1A1A1A !important;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.15s;
+}
+.nav-dropdown-menu li a:hover { background: #E8F0EB; color: #1E3D2F !important; }
+
 </style>
 </head>
 <body>
@@ -680,7 +712,14 @@ footer {
     <li><a href="/about.html">About</a></li>
     <li><a href="/#specialties">Specialties</a></li>
     <li><a href="https://tiyarecare.com" target="_blank">Tiyare Care</a></li>
-    <li><a href="/contact.html" class="nav-cta active">Get Started</a></li>
+    <li class="nav-dropdown">
+      <a href="#" class="nav-dropdown-toggle">Tools &#9662;</a>
+      <ul class="nav-dropdown-menu">
+        <li><a href="/cer2-tracker.html">CER2 Practice Tracker</a></li>
+        <li><a href="https://tiyarecare.com" target="_blank">Tiyare Care</a></li>
+      </ul>
+    </li>
+    <li><a href="/contact.html" class="nav-cta">Get Started</a></li>
   </ul>
   <button class="nav-mobile-btn" id="mobile-btn" aria-label="Open menu">
     <span></span><span></span><span></span>
@@ -692,7 +731,7 @@ footer {
   <div class="page-hero-inner">
     <div class="page-hero-eyebrow">Get in touch</div>
     <h1>Let's take the<br><em>first step together</em></h1>
-    <p class="page-hero-sub">Fill out the form below and Dr. Cleve will respond within one business day to discuss next steps.</p>
+    <p class="page-hero-sub">Fill out the form below and Dr. Robinson will respond within one business day to discuss next steps.</p>
   </div>
 </div>
 
@@ -701,15 +740,15 @@ footer {
 
   <!-- FORM -->
   <div class="form-card fade-up">
-    <h2>Contact Us</h2>
-    <p class="form-intro">For counseling, family therapy, corporate wellness programs, school-based telehealth, implicit bias training, or general questions — send us a message and we'll respond within one business day.</p>
+    <h2>Corporate & General Inquiries</h2>
+    <p class="form-intro">For corporate wellness programs, school-based telehealth, implicit bias training, or general questions — send us a message and we'll respond within one business day.</p>
 
     
     <!-- VIDEO + BOOKING -->
     <div class="pre-form-section">
       <div class="pre-form-eyebrow">Before you book</div>
-      <h2 class="pre-form-headline">Hear directly from Dr. Cleve — 3 minutes that will change how you think about therapy</h2>
-      <p class="pre-form-sub">Dr. Cleve doesn't do consultations. Instead, he does something better — he tells you exactly who he is, how he works, and what to expect. Watch this before you book.</p>
+      <h2 class="pre-form-headline">Hear directly from Dr. Robinson — 3 minutes that will change how you think about therapy</h2>
+      <p class="pre-form-sub">Dr. Robinson doesn't do consultations. Instead, he does something better — he tells you exactly who he is, how he works, and what to expect. Watch this before you book.</p>
       
       <div class="video-wrap">
         <iframe src="https://www.loom.com/embed/10dd87d6d9a541d9bf01b446d3cf4f7b" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
@@ -734,7 +773,7 @@ footer {
       <p><strong>Important:</strong> Do not include confidential health information, diagnosis details, or sensitive personal information in this form. This form is for general inquiries only and is not a secure clinical communication channel.</p>
     </div>
 
-    <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+    <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
 
       <!-- Who is this for -->
       <div class="form-group">
@@ -782,7 +821,7 @@ footer {
         <label for="state">State You Are Located In <span class="required">*</span></label>
         <select id="state" name="state" required>
           <option value="" disabled selected>Select your state</option>
-          <optgroup label="States Dr. Cleve is Licensed In">
+          <optgroup label="States Dr. Robinson is Licensed In">
             <option value="Texas">Texas</option>
             <option value="New Mexico">New Mexico</option>
             <option value="Florida">Florida</option>
@@ -862,7 +901,7 @@ footer {
         <textarea id="message" name="message" placeholder="Tell us generally what brings you here. Please do not include sensitive health information." required></textarea>
       </div>
 
-      <!-- Hidden field --><input type="hidden" name="access_key" value="9dcb5536-b3f6-4116-8c22-519458dbf7b8">
+      <!-- Hidden field -->
       <input type="hidden" name="_subject" value="New consultation request — Robinson House">
       <input type="hidden" name="_next" value="https://robinsonhbh.com/contact.html?success=true">
 
@@ -875,7 +914,7 @@ footer {
     <div class="success-message" id="success-message">
       <div class="checkmark">✓</div>
       <h3>Request received</h3>
-      <p>Thank you for reaching out. Dr. Cleve will be in touch within one business day to discuss next steps.</p>
+      <p>Thank you for reaching out. Dr. Robinson will be in touch within one business day to discuss next steps.</p>
     </div>
   </div>
 
@@ -915,7 +954,7 @@ footer {
 
     <div class="states-card fade-up">
       <h3>Licensed to practice in</h3>
-      <p>Dr. Cleve can only see clients located in these states at the time of service.</p>
+      <p>Dr. Robinson can only see clients located in these states at the time of service.</p>
       <div class="state-list">
         <div class="state-item"><span class="state-name">Texas</span><span class="state-lic">LPC-S</span></div>
         <div class="state-item"><span class="state-name">New Mexico</span><span class="state-lic">LPCC</span></div>
@@ -926,7 +965,7 @@ footer {
     </div>
 
     <div class="response-card fade-up">
-      <p><strong>Response time:</strong> Dr. Cleve personally responds to all inquiries within one business day. Submitting this form does not establish a therapeutic relationship or guarantee services.</p>
+      <p><strong>Response time:</strong> Dr. Robinson personally responds to all inquiries within one business day. Submitting this form does not establish a therapeutic relationship or guarantee services.</p>
     </div>
 
   </div>
