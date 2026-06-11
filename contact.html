@@ -734,7 +734,7 @@ footer {
       <p><strong>Important:</strong> Do not include confidential health information, diagnosis details, or sensitive personal information in this form. This form is for general inquiries only and is not a secure clinical communication channel.</p>
     </div>
 
-    <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
 
       <!-- Who is this for -->
       <div class="form-group">
@@ -862,7 +862,7 @@ footer {
         <textarea id="message" name="message" placeholder="Tell us generally what brings you here. Please do not include sensitive health information." required></textarea>
       </div>
 
-      <!-- Hidden field -->
+      <!-- Hidden field --><input type="hidden" name="access_key" value="9dcb5536-b3f6-4116-8c22-519458dbf7b8">
       <input type="hidden" name="_subject" value="New consultation request — Robinson House">
       <input type="hidden" name="_next" value="https://robinsonhbh.com/contact.html?success=true">
 
