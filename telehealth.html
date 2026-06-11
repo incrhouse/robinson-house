@@ -579,7 +579,7 @@ footer {
 .nav-dropdown-menu {
   display: none;
   position: absolute;
-  top: calc(100% + 12px);
+  top: calc(100% + 8px);
   left: 50%;
   transform: translateX(-50%);
   background: #ffffff;
@@ -591,7 +591,7 @@ footer {
   list-style: none;
   z-index: 200;
 }
-.nav-dropdown:hover .nav-dropdown-menu { display: block; }
+.nav-dropdown-menu.open { display: block; }
 .nav-dropdown-menu li a {
   display: block;
   padding: 10px 16px;
@@ -918,6 +918,21 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.1 });
 document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+// Dropdown click handler
+document.querySelectorAll('.nav-dropdown-toggle').forEach(toggle => {
+  toggle.addEventListener('click', function(e) {
+    e.preventDefault();
+    const menu = this.nextElementSibling;
+    menu.classList.toggle('open');
+  });
+});
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('.nav-dropdown')) {
+    document.querySelectorAll('.nav-dropdown-menu').forEach(m => m.classList.remove('open'));
+  }
+});
+
 </script>
 </body>
 </html>

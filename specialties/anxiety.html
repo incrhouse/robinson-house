@@ -122,7 +122,7 @@ footer{background:var(--forest);color:rgba(255,255,255,0.75);padding:64px 8% 40p
 .nav-dropdown-menu {
   display: none;
   position: absolute;
-  top: calc(100% + 12px);
+  top: calc(100% + 8px);
   left: 50%;
   transform: translateX(-50%);
   background: #ffffff;
@@ -134,7 +134,7 @@ footer{background:var(--forest);color:rgba(255,255,255,0.75);padding:64px 8% 40p
   list-style: none;
   z-index: 200;
 }
-.nav-dropdown:hover .nav-dropdown-menu { display: block; }
+.nav-dropdown-menu.open { display: block; }
 .nav-dropdown-menu li a {
   display: block;
   padding: 10px 16px;
@@ -384,6 +384,21 @@ mobileBtn.addEventListener("click",()=>navLinks.classList.toggle("open"));
 navLinks.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>navLinks.classList.remove("open")));
 const observer=new IntersectionObserver((entries)=>{entries.forEach((entry,i)=>{if(entry.isIntersecting){setTimeout(()=>entry.target.classList.add("visible"),i*80);observer.unobserve(entry.target);}});},{threshold:0.1});
 document.querySelectorAll(".fade-up").forEach(el=>observer.observe(el));
+
+// Dropdown click handler
+document.querySelectorAll('.nav-dropdown-toggle').forEach(toggle => {
+  toggle.addEventListener('click', function(e) {
+    e.preventDefault();
+    const menu = this.nextElementSibling;
+    menu.classList.toggle('open');
+  });
+});
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('.nav-dropdown')) {
+    document.querySelectorAll('.nav-dropdown-menu').forEach(m => m.classList.remove('open'));
+  }
+});
+
 </script>
 </body>
 </html>
