@@ -37,12 +37,6 @@ nav.scrolled{box-shadow:0 2px 20px rgba(30,61,47,0.08)}
 .nav-cta:hover{background:var(--forest-mid)!important;transform:translateY(-1px)}
 .nav-mobile-btn{display:none;background:none;border:none;cursor:pointer;padding:4px;flex-direction:column;gap:5px}
 .nav-mobile-btn span{display:block;width:24px;height:2px;background:var(--charcoal);border-radius:2px}
-.nav-dropdown{position:relative}
-.nav-dropdown-toggle{display:flex;align-items:center;gap:4px;cursor:pointer}
-.nav-dropdown-menu{display:none;position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);background:var(--white);border:1px solid rgba(30,61,47,0.1);border-radius:var(--radius-lg);box-shadow:0 8px 32px rgba(30,61,47,0.12);padding:8px;min-width:220px;list-style:none;z-index:200}
-.nav-dropdown-menu.open{display:block}
-.nav-dropdown-menu li a{display:block;padding:10px 16px;font-size:14px;font-weight:500;color:var(--charcoal)!important;text-decoration:none;border-radius:8px;transition:background 0.15s}
-.nav-dropdown-menu li a:hover{background:var(--forest-mist);color:var(--forest)!important}
 .hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding-top:72px;background:var(--cream);position:relative;overflow:hidden}
 .hero::before{content:"";position:absolute;top:0;right:0;width:50%;height:100%;background:var(--forest-mist);z-index:0}
 .hero-left{position:relative;z-index:1;display:flex;flex-direction:column;justify-content:center;padding:80px 5% 80px 8%}
@@ -149,13 +143,7 @@ footer{background:var(--forest);color:rgba(255,255,255,0.75);padding:64px 8% 40p
     <li><a href="/about.html">About</a></li>
     <li><a href="#specialties">Specialties</a></li>
     <li><a href="https://tiyarecare.com" target="_blank">Tiyare Care</a></li>
-    <li class="nav-dropdown">
-      <a href="#" class="nav-dropdown-toggle">Tools &#9662;</a>
-      <ul class="nav-dropdown-menu">
-        <li><a href="/cer2-tracker.html">CER2 Practice Tracker</a></li>
-        <li><a href="https://tiyarecare.com" target="_blank">Tiyare Care</a></li>
-      </ul>
-    </li>
+    <li><a href="/cer2-tracker.html">CER2 Private Practice Cash Flow Tracker</a></li>
     <li><a href="/contact.html" class="nav-cta">Get Started</a></li>
   </ul>
   <button class="nav-mobile-btn" id="mobile-btn" aria-label="Open menu"><span></span><span></span><span></span></button>
@@ -239,7 +227,7 @@ footer{background:var(--forest);color:rgba(255,255,255,0.75);padding:64px 8% 40p
     <div class="about-content fade-up">
       <div class="section-eyebrow">About Dr. Cleve</div>
       <h2 class="section-title" id="about-title">A clinician who also builds the tools he wishes existed</h2>
-      <p class="about-body">Dr. Cleveland Robinson &mdash; known to his clients as Dr. Cleve &mdash; is a Licensed Professional Counselor-Supervisor (LPC-S) based in Dallas, TX, independently licensed to practice in Texas, New Mexico, Florida, Idaho, and Nebraska. Since 2014, he has provided full-spectrum behavioral health services with a focus on children, teens, parents, and families navigating life&apos;s challenges.</p>
+      <p class="about-body">Dr. Cleveland Robinson &mdash; known to his clients as Dr. Cleve &mdash; is a Licensed Professional Counselor-Supervisor (LPC-S) based in Dallas, TX, independently licensed to practice in Texas, New Mexico, Florida, Idaho, and Nebraska. Since 2014, he has provided full-spectrum behavioral health services with a focus on children, teens, parents, and families navigating life's challenges.</p>
       <p class="about-body">Beyond his clinical practice, Dr. Cleve builds free technology tools to extend access to mental health support. Tiyare Care, his AI-powered pediatric triage tool, is used by parents across the DFW area and built on AAP and Schmitt-Thompson 2026 protocols.</p>
       <ul class="credential-list">
         <li>LPC-S &mdash; Texas (Licensed Professional Counselor-Supervisor)</li>
@@ -260,7 +248,7 @@ footer{background:var(--forest);color:rgba(255,255,255,0.75);padding:64px 8% 40p
   <div class="fade-up">
     <div class="section-eyebrow">Free Community Tool</div>
     <h2 class="section-title" id="tiyare-title">Pediatric guidance for every parent, at 2am</h2>
-    <p class="section-sub">Tiyare Care is a free AI-powered pediatric clinical decision support tool &mdash; built by Dr. Cleve for parents who can&apos;t always reach their pediatrician right away.</p>
+    <p class="section-sub">Tiyare Care is a free AI-powered pediatric clinical decision support tool &mdash; built by Dr. Cleve for parents who can't always reach their pediatrician right away.</p>
     <a href="https://tiyarecare.com" target="_blank" class="btn-primary">Use Tiyare Care Free &rarr;</a>
   </div>
   <div class="tiyare-card fade-up">
@@ -378,17 +366,6 @@ footer{background:var(--forest);color:rgba(255,255,255,0.75);padding:64px 8% 40p
 </footer>
 
 <script>
-document.querySelectorAll(".nav-dropdown-toggle").forEach(toggle => {
-  toggle.addEventListener("click", function(e) {
-    e.preventDefault();
-    this.nextElementSibling.classList.toggle("open");
-  });
-});
-document.addEventListener("click", function(e) {
-  if (!e.target.closest(".nav-dropdown")) {
-    document.querySelectorAll(".nav-dropdown-menu").forEach(m => m.classList.remove("open"));
-  }
-});
 const nav = document.getElementById("nav");
 window.addEventListener("scroll", () => nav.classList.toggle("scrolled", window.scrollY > 20));
 const mobileBtn = document.getElementById("mobile-btn");
