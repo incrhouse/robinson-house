@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services | Robinson House Behavioral Health | Dr. Cleve</title>
+<meta name="description" content="Full-spectrum behavioral health services from Dr. Cleve. Individual therapy, family counseling, school-based telehealth, ESA letters, TEA-approved educator training, and more. Licensed in TX, NM, FL, ID & NE.">
+<meta name="keywords" content="behavioral health services Texas, individual therapy Dallas, family counseling telehealth, school mental health training TEA, ESA letter Texas, crisis support telehealth, Dr Cleve therapist">
+<link rel="canonical" href="https://robinsonhbh.com/services.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#F5F0E8;--cream-dark:#EDE7D9;--forest:#1E3D2F;--forest-mid:#2D5A42;--forest-lite:#4A7C5F;--forest-mist:#E8F0EB;--charcoal:#1A1A1A;--warm-gray:#6B6560;--white:#FFFFFF;--radius:4px;--radius-lg:12px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"DM Sans",-apple-system,sans-serif;background:var(--cream);color:var(--charcoal);font-size:16px;line-height:1.7;overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 5%;height:72px;display:flex;align-items:center;justify-content:space-between;background:rgba(245,240,232,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(30,61,47,0.08);box-shadow:0 2px 20px rgba(30,61,47,0.06)}
+.nav-logo{font-family:"Playfair Display",serif;font-size:18px;font-weight:700;color:var(--forest);text-decoration:none}
+.nav-logo span{display:block;font-family:"DM Sans",sans-serif;font-size:10px;font-weight:500;color:var(--warm-gray);letter-spacing:1.5px;text-transform:uppercase}
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+.nav-links a{font-size:14px;font-weight:500;color:var(--charcoal);text-decoration:none;transition:color 0.2s}
+.nav-links a:hover,.nav-links a.active{color:var(--forest)}
+.nav-cta{background:var(--forest)!important;color:var(--white)!important;padding:10px 22px;border-radius:var(--radius);font-weight:600!important;font-size:13px!important}
+.nav-mobile-btn{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:4px}
+.nav-mobile-btn span{display:block;width:24px;height:2px;background:var(--charcoal);border-radius:2px}
+
+/* HERO */
+.page-hero{padding-top:72px;background:var(--forest);padding-bottom:64px;position:relative;overflow:hidden}
+.page-hero::before{content:"";position:absolute;top:-30%;right:-5%;width:600px;height:600px;background:radial-gradient(circle,rgba(74,124,95,0.15) 0%,transparent 70%);pointer-events:none}
+.hero-inner{max-width:900px;margin:0 auto;padding:72px 8% 0;position:relative;z-index:1}
+.hero-eyebrow{font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:20px}
+.hero-inner h1{font-family:"Playfair Display",serif;font-size:clamp(36px,4.5vw,56px);font-weight:700;color:var(--white);line-height:1.1;letter-spacing:-0.02em;margin-bottom:20px}
+.hero-inner h1 em{font-style:italic;color:rgba(255,255,255,0.65)}
+.hero-sub{font-size:17px;color:rgba(255,255,255,0.65);max-width:580px;line-height:1.8}
+.state-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.state-pill{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.75);padding:5px 12px;border-radius:100px;font-size:11px;font-weight:600}
+
+/* SERVICE SECTIONS */
+.services-wrap{max-width:1100px;margin:0 auto;padding:80px 8%}
+.service-section{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;margin-bottom:80px;padding-bottom:80px;border-bottom:1px solid rgba(30,61,47,0.1)}
+.service-section:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.service-section.reverse{direction:rtl}
+.service-section.reverse > *{direction:ltr}
+.service-tag{display:inline-block;background:var(--forest-mist);color:var(--forest);font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:5px 12px;border-radius:100px;margin-bottom:16px}
+.service-section h2{font-family:"Playfair Display",serif;font-size:clamp(26px,3vw,36px);color:var(--forest);font-weight:700;line-height:1.2;margin-bottom:16px}
+.service-body{font-size:15px;color:var(--warm-gray);line-height:1.9;margin-bottom:16px}
+.service-body strong{color:var(--charcoal);font-weight:600}
+.service-list{list-style:none;display:flex;flex-direction:column;gap:8px;margin:16px 0 24px}
+.service-list li{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--charcoal)}
+.service-list li::before{content:"";width:7px;height:7px;background:var(--forest-lite);border-radius:50%;flex-shrink:0;margin-top:7px}
+.btn-primary{background:var(--forest);color:var(--white);padding:14px 28px;border-radius:var(--radius);font-size:14px;font-weight:600;text-decoration:none;display:inline-block;transition:background 0.2s,transform 0.2s}
+.btn-primary:hover{background:var(--forest-mid);transform:translateY(-1px)}
+.btn-ghost{color:var(--forest);padding:14px 20px;border-radius:var(--radius);font-size:14px;font-weight:600;text-decoration:none;border:1.5px solid rgba(30,61,47,0.2);display:inline-block;transition:background 0.2s;margin-left:12px}
+.btn-ghost:hover{background:var(--forest-mist)}
+.service-visual{background:var(--forest-mist);border-radius:var(--radius-lg);padding:40px 36px;height:100%;display:flex;flex-direction:column;justify-content:center}
+.service-visual.dark{background:var(--forest);color:var(--white)}
+.visual-stat{margin-bottom:28px}
+.visual-stat:last-child{margin-bottom:0}
+.stat-num{font-family:"Playfair Display",serif;font-size:44px;font-weight:700;color:var(--forest);line-height:1;margin-bottom:6px}
+.service-visual.dark .stat-num{color:var(--white)}
+.stat-label{font-size:13px;color:var(--warm-gray);font-weight:500}
+.service-visual.dark .stat-label{color:rgba(255,255,255,0.6)}
+.tea-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:var(--radius);padding:12px 16px;margin-bottom:20px}
+.tea-badge strong{font-size:13px;color:var(--white);font-weight:700}
+.tea-badge span{font-size:12px;color:rgba(255,255,255,0.6)}
+.respond-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px}
+.respond-item{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius);padding:12px 14px}
+.respond-letter{font-family:"Playfair Display",serif;font-size:22px;font-weight:700;color:#7aad7a;line-height:1;margin-bottom:4px}
+.respond-word{font-size:12px;font-weight:700;color:var(--white);margin-bottom:2px}
+.respond-desc{font-size:11px;color:rgba(255,255,255,0.5);line-height:1.4}
+.img-frame{border-radius:var(--radius-lg);overflow:hidden;aspect-ratio:4/3}
+.img-frame img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* TEA BANNER */
+.tea-banner{background:var(--forest);padding:56px 8%;text-align:center}
+.tea-banner-inner{max-width:800px;margin:0 auto}
+.tea-banner h2{font-family:"Playfair Display",serif;font-size:clamp(26px,3vw,38px);color:var(--white);margin-bottom:12px;font-weight:700}
+.tea-banner p{font-size:16px;color:rgba(255,255,255,0.65);margin-bottom:28px;line-height:1.8}
+.tea-banner .btn-cream{background:var(--cream);color:var(--forest);padding:16px 32px;border-radius:var(--radius);font-size:15px;font-weight:700;text-decoration:none;display:inline-block;transition:background 0.2s}
+.tea-banner .btn-cream:hover{background:var(--white)}
+
+/* FINAL CTA */
+.final-cta{background:var(--cream);padding:80px 8%;text-align:center;border-top:1px solid rgba(30,61,47,0.08)}
+.final-cta h2{font-family:"Playfair Display",serif;font-size:clamp(28px,3.5vw,44px);color:var(--forest);margin-bottom:16px;font-weight:700}
+.final-cta p{font-size:17px;color:var(--warm-gray);max-width:480px;margin:0 auto 36px;line-height:1.8}
+.cta-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+/* FOOTER */
+footer{background:var(--forest);color:rgba(255,255,255,0.75);padding:64px 8% 40px}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,0.1);margin-bottom:32px}
+.footer-logo-text{font-family:"Playfair Display",serif;font-size:20px;font-weight:700;color:var(--white);margin-bottom:12px;display:block}
+.footer-tagline{font-size:13px;line-height:1.7;max-width:280px}
+.footer-col h4{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--white);margin-bottom:20px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-col ul a{color:rgba(255,255,255,0.65);text-decoration:none;font-size:14px;transition:color 0.2s}
+.footer-col ul a:hover{color:var(--white)}
+.footer-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12px}
+.footer-disclaimer{max-width:600px;line-height:1.6;opacity:0.5}
+.footer-copy{opacity:0.5;white-space:nowrap}
+
+@media(max-width:900px){
+  .service-section{grid-template-columns:1fr;gap:36px}
+  .service-section.reverse{direction:ltr}
+  .respond-grid{grid-template-columns:1fr 1fr 1fr 1fr}
+  .nav-links{display:none}
+  .nav-mobile-btn{display:flex}
+  .nav-links.open{display:flex;flex-direction:column;position:fixed;top:72px;left:0;right:0;background:var(--cream);padding:24px 5% 32px;border-bottom:1px solid rgba(30,61,47,0.1);gap:20px;align-items:flex-start}
+  .footer-top{grid-template-columns:1fr 1fr;gap:32px}
+}
+@media(max-width:560px){
+  .respond-grid{grid-template-columns:1fr 1fr}
+  .footer-top{grid-template-columns:1fr}
+  .services-wrap{padding:56px 5%}
+}
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">Robinson House<span>Behavioral Health</span></a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="/services.html" class="active">Services</a></li>
+    <li><a href="/about.html">About</a></li>
+    <li><a href="/#specialties">Specialties</a></li>
+    <li><a href="https://tiyarecare.com" target="_blank">Tiyare Care</a></li>
+    <li><a href="/esa-letter.html">ESA Letter</a></li>
+    <li><a href="/cer2-tracker.html">CER2 Tracker</a></li>
+    <li><a href="/contact.html" class="nav-cta">Get Started</a></li>
+  </ul>
+  <button class="nav-mobile-btn" id="mobile-btn" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="page-hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">What Dr. Cleve offers</div>
+    <h1>Full-spectrum care<br><em>for every season of life</em></h1>
+    <p class="hero-sub">From one-on-one therapy to TEA-approved educator training &mdash; Dr. Cleve brings clinical expertise, cultural awareness, and practical tools to every service he offers.</p>
+    <div class="state-row">
+      <span class="state-pill">Texas &middot; LPC-S</span>
+      <span class="state-pill">New Mexico &middot; LPCC</span>
+      <span class="state-pill">Florida &middot; LMHC</span>
+      <span class="state-pill">Idaho &middot; LPC</span>
+      <span class="state-pill">Nebraska &middot; LMHP</span>
+    </div>
+  </div>
+</div>
+
+<div class="services-wrap">
+
+  <!-- INDIVIDUAL THERAPY -->
+  <div class="service-section fade-up" id="individual">
+    <div>
+      <span class="service-tag">Individual Therapy</span>
+      <h2>One-on-one support built around you</h2>
+      <p class="service-body">Individual therapy with Dr. Cleve is not a one-size-fits-all experience. He meets each client where they are &mdash; children, teens, and adults navigating anxiety, depression, ADHD, life transitions, trauma, and more.</p>
+      <p class="service-body"><strong>Dr. Cleve specializes in children and teens</strong>, and brings the same evidence-based, culturally affirming approach to every age group he serves.</p>
+      <ul class="service-list">
+        <li>Children ages 5 through 17</li>
+        <li>Teens navigating school, identity, and relationships</li>
+        <li>Adults managing anxiety, depression, and life stress</li>
+        <li>Culturally affirming care for diverse communities</li>
+        <li>Available via telehealth in TX, NM, FL, ID, and NE</li>
+      </ul>
+      <a href="https://robinsonhouse.clientsecure.me" target="_blank" class="btn-primary">Book a Session &rarr;</a>
+      <a href="/contact.html" class="btn-ghost">Have a question</a>
+    </div>
+    <div class="service-visual">
+      <div class="visual-stat"><div class="stat-num">10+</div><div class="stat-label">Years helping children, teens, and families</div></div>
+      <div class="visual-stat"><div class="stat-num">5</div><div class="stat-label">States licensed to practice</div></div>
+      <div class="visual-stat"><div class="stat-num">100%</div><div class="stat-label">Telehealth &mdash; secure, flexible, accessible</div></div>
+    </div>
+  </div>
+
+  <!-- COUPLES & FAMILY -->
+  <div class="service-section reverse fade-up" id="family">
+    <div>
+      <span class="service-tag">Couples &amp; Family Therapy</span>
+      <h2>Healing the family heals the child</h2>
+      <p class="service-body">Dr. Cleve believes you cannot fully support a child without supporting the system around them. Family therapy at Robinson House keeps parents and caregivers in the picture &mdash; not as the problem, but as the most powerful tool in the healing process.</p>
+      <p class="service-body">Couples therapy focuses on communication, conflict resolution, and rebuilding connection in a safe, structured space.</p>
+      <ul class="service-list">
+        <li>Parent coaching for families with anxious or struggling children</li>
+        <li>Family communication and conflict resolution</li>
+        <li>Couples counseling and relationship support</li>
+        <li>Co-parenting through your child's mental health challenges</li>
+        <li>Blended family dynamics and life transitions</li>
+      </ul>
+      <a href="https://robinsonhouse.clientsecure.me" target="_blank" class="btn-primary">Book a Session &rarr;</a>
+      <a href="/contact.html" class="btn-ghost">Have a question</a>
+    </div>
+    <div class="service-visual">
+      <div class="visual-stat"><div class="stat-num">EN/ES</div><div class="stat-label">Bilingual services available in English and Spanish</div></div>
+      <div class="visual-stat"><div class="stat-num">HIPAA</div><div class="stat-label">Secure, compliant telehealth sessions</div></div>
+      <div class="visual-stat"><div class="stat-num">24hr</div><div class="stat-label">Response time for all inquiry submissions</div></div>
+    </div>
+  </div>
+
+  <!-- SCHOOL-BASED TELEHEALTH -->
+  <div class="service-section fade-up" id="school">
+    <div>
+      <span class="service-tag">School-Based Telehealth</span>
+      <h2>Mental health support that goes where students are</h2>
+      <p class="service-body">Dr. Cleve is a school-based telehealth specialist with experience delivering mental health services directly into K-12 school environments. This model removes transportation and access barriers &mdash; students receive support without leaving campus.</p>
+      <p class="service-body">Coordination with school counselors, teachers, and administrators is part of the service &mdash; not an afterthought.</p>
+      <ul class="service-list">
+        <li>HIPAA-compliant sessions delivered on school campus</li>
+        <li>Coordination with school counselors and IEP teams</li>
+        <li>Serving students EC through Grade 12</li>
+        <li>Available for districts and charter schools in licensed states</li>
+        <li>Specialization in anxiety, ADHD, emotional dysregulation, and trauma</li>
+      </ul>
+      <a href="/contact.html" class="btn-primary">Inquire About School Services &rarr;</a>
+    </div>
+    <div class="service-visual dark">
+      <div class="visual-stat"><div class="stat-num" style="color:#7aad7a">EC-12</div><div class="stat-label">Grade bands served from early childhood through high school</div></div>
+      <div class="visual-stat"><div class="stat-num" style="color:#7aad7a">IEP</div><div class="stat-label">Coordination with existing school plans and support teams</div></div>
+    </div>
+  </div>
+
+  <!-- TEA TRAINING -->
+  <div class="service-section reverse fade-up" id="tea-training">
+    <div>
+      <span class="service-tag">TEA-Approved Educator Training</span>
+      <h2>Supporting Students with Big Emotions</h2>
+      <p class="service-body"><strong>3 CPE Clock-Hours &mdash; TEA CPE Provider #910083</strong></p>
+      <p class="service-body">Building Mental and Emotional Health-Informed Schools. Dr. Cleve's TEA-approved professional development training gives educators practical, classroom-ready tools for supporting students experiencing anxiety, emotional dysregulation, ADHD, trauma responses, academic frustration, and shame &mdash; without asking teachers to become therapists.</p>
+      <p class="service-body">Delivered in-person or synchronously online. Available for individual campuses, district-wide PD days, and charter school networks.</p>
+      <ul class="service-list">
+        <li>3 CPE clock-hours &mdash; TEA approved, provider #910083</li>
+        <li>Audience: teachers, counselors, administrators, instructional coaches, special education staff</li>
+        <li>Grade bands: Early Childhood through Grade 12</li>
+        <li>Covers anxiety, ADHD, dysregulation, trauma, dyslexia, IEP/504/BIP responsibilities</li>
+        <li>Uses the R.E.S.P.O.N.D. clinical decision-making model</li>
+        <li>In-person or synchronous online delivery</li>
+        <li>80% mastery required for CPE credit</li>
+      </ul>
+      <a href="/contact.html" class="btn-primary">Book This Training &rarr;</a>
+    </div>
+    <div class="service-visual dark">
+      <div class="tea-badge">
+        <div>
+          <strong>TEA CPE Provider #910083</strong>
+          <span style="display:block">Texas Education Agency Approved</span>
+        </div>
+      </div>
+      <p style="font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:20px;line-height:1.7">The R.E.S.P.O.N.D. model gives educators a structured framework for responding to students in emotional distress:</p>
+      <div class="respond-grid">
+        <div class="respond-item"><div class="respond-letter">R</div><div class="respond-word">Recognize</div><div class="respond-desc">Observe the student and environment</div></div>
+        <div class="respond-item"><div class="respond-letter">E</div><div class="respond-word">Examine</div><div class="respond-desc">Separate facts from assumptions</div></div>
+        <div class="respond-item"><div class="respond-letter">S</div><div class="respond-word">Stabilize</div><div class="respond-desc">Reduce escalation calmly</div></div>
+        <div class="respond-item"><div class="respond-letter">P</div><div class="respond-word">Preserve</div><div class="respond-desc">Protect student dignity</div></div>
+        <div class="respond-item"><div class="respond-letter">O</div><div class="respond-word">Offer</div><div class="respond-desc">Restore access to learning</div></div>
+        <div class="respond-item"><div class="respond-letter">N</div><div class="respond-word">Note</div><div class="respond-desc">Document and collaborate</div></div>
+        <div class="respond-item"><div class="respond-letter">D</div><div class="respond-word">Determine</div><div class="respond-desc">Decide next steps and referrals</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CRISIS SUPPORT -->
+  <div class="service-section fade-up" id="crisis">
+    <div>
+      <span class="service-tag">Crisis Support</span>
+      <h2>Stabilization when it matters most</h2>
+      <p class="service-body">Crisis support at Robinson House provides short-term, intensive stabilization for individuals and families experiencing acute mental health crises. Dr. Cleve helps clients move from overwhelm to stability with a clear, structured plan for what comes next.</p>
+      <p class="service-body"><strong>If you or someone you know is in immediate danger, call 988 or 911.</strong> Crisis support services are for non-emergency clinical stabilization.</p>
+      <ul class="service-list">
+        <li>Short-term intensive support for acute mental health crises</li>
+        <li>Safety planning and stabilization</li>
+        <li>Coordination with outpatient and higher levels of care</li>
+        <li>Available to existing clients in all licensed states</li>
+      </ul>
+      <a href="/contact.html" class="btn-primary">Contact Dr. Cleve &rarr;</a>
+    </div>
+    <div class="service-visual">
+      <p style="font-size:15px;font-weight:600;color:var(--forest);margin-bottom:12px">Mental health emergency?</p>
+      <p style="font-size:14px;color:var(--warm-gray);margin-bottom:20px;line-height:1.7">If you or someone you know is in immediate danger, do not wait. Call or text:</p>
+      <div style="background:var(--forest);border-radius:var(--radius);padding:20px 24px;margin-bottom:12px;text-align:center">
+        <div style="font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:#7aad7a;margin-bottom:4px">988</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.7)">Suicide &amp; Crisis Lifeline &mdash; Call or Text</div>
+      </div>
+      <div style="background:var(--forest);border-radius:var(--radius);padding:20px 24px;text-align:center">
+        <div style="font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:#7aad7a;margin-bottom:4px">911</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.7)">Immediate emergency services</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GROUP & CORPORATE -->
+  <div class="service-section reverse fade-up" id="corporate">
+    <div>
+      <span class="service-tag">Corporate &amp; Workplace Wellness</span>
+      <h2>Mental wellness that serves your whole organization</h2>
+      <p class="service-body">Robinson House offers corporate mental wellness programs, EAP support, and group therapy for organizations that want to invest in the wellbeing of their people. Dr. Cleve also delivers implicit bias training as a certified Master Trainer.</p>
+      <ul class="service-list">
+        <li>Employee mental health and wellness programs</li>
+        <li>EAP (Employee Assistance Program) support</li>
+        <li>Group therapy for workplace teams</li>
+        <li>Implicit Bias Training &mdash; Master Trainer certified</li>
+        <li>Healthcare AI implementation consulting</li>
+        <li>Custom training for healthcare organizations and schools</li>
+      </ul>
+      <a href="/contact.html" class="btn-primary">Inquire About Corporate Services &rarr;</a>
+    </div>
+    <div class="service-visual">
+      <div class="visual-stat"><div class="stat-num">Master</div><div class="stat-label">Trainer certification in Implicit Bias</div></div>
+      <div class="visual-stat"><div class="stat-num">B2B</div><div class="stat-label">Custom programs for healthcare, education, and corporate organizations</div></div>
+    </div>
+  </div>
+
+  <!-- ESA LETTER -->
+  <div class="service-section fade-up" id="esa">
+    <div>
+      <span class="service-tag">ESA Letter &mdash; $150 Flat Rate</span>
+      <h2>A legitimate ESA letter from a licensed therapist</h2>
+      <p class="service-body">Not a website. Not an algorithm. Dr. Cleve conducts a proper clinical evaluation and issues ESA letters only when clinically justified &mdash; making your letter credible and defensible with landlords and housing providers.</p>
+      <p class="service-body">Available to clients physically located in Texas or New Mexico.</p>
+      <ul class="service-list">
+        <li>Full clinical evaluation &mdash; not a questionnaire</li>
+        <li>Professional letterhead with license number included</li>
+        <li>Same-day or next-day delivery</li>
+        <li>$150 flat rate &mdash; no hidden fees</li>
+        <li>Available in Texas and New Mexico only</li>
+      </ul>
+      <a href="/esa-letter.html" class="btn-primary">Learn More &amp; Book &rarr;</a>
+    </div>
+    <div class="service-visual dark">
+      <div style="text-align:center">
+        <div style="font-family:'Playfair Display',serif;font-size:64px;font-weight:700;color:var(--white);line-height:1;margin-bottom:8px">$150</div>
+        <div style="font-size:14px;color:rgba(255,255,255,0.6);margin-bottom:28px">Flat rate &mdash; evaluation + letter included</div>
+        <a href="/esa-letter.html" style="display:inline-block;background:var(--cream);color:var(--forest);padding:14px 28px;border-radius:var(--radius);font-size:14px;font-weight:700;text-decoration:none">Book ESA Evaluation &rarr;</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- TEA BANNER -->
+<div class="tea-banner">
+  <div class="tea-banner-inner">
+    <h2>TEA-Approved Professional Development</h2>
+    <p>Supporting Students with Big Emotions &mdash; 3 CPE clock-hours for Texas educators. Book this training for your campus, district, or charter network.</p>
+    <a href="/contact.html" class="btn-cream">Book This Training for Your School &rarr;</a>
+  </div>
+</div>
+
+<!-- FINAL CTA -->
+<div class="final-cta">
+  <div class="fade-up">
+    <h2>Not sure where to start?</h2>
+    <p>Send Dr. Cleve a message and he will respond within one business day to help you figure out the right fit.</p>
+    <div class="cta-actions">
+      <a href="/contact.html" class="btn-primary">Send a Message &rarr;</a>
+      <a href="https://robinsonhouse.clientsecure.me" target="_blank" style="color:var(--forest);padding:16px 24px;border-radius:var(--radius);font-size:15px;font-weight:600;text-decoration:none;border:1.5px solid var(--forest);display:inline-block">Book Directly</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-top">
+    <div><span class="footer-logo-text">Robinson House</span><p class="footer-tagline">Full-spectrum behavioral health care via telehealth. Licensed in Texas, New Mexico, Florida, Idaho, and Nebraska.</p></div>
+    <div class="footer-col"><h4>Services</h4><ul>
+      <li><a href="#individual">Individual Therapy</a></li>
+      <li><a href="#family">Couples &amp; Family</a></li>
+      <li><a href="#school">School Telehealth</a></li>
+      <li><a href="#tea-training">TEA Training</a></li>
+      <li><a href="#crisis">Crisis Support</a></li>
+      <li><a href="#corporate">Corporate Wellness</a></li>
+      <li><a href="/esa-letter.html">ESA Letter</a></li>
+    </ul></div>
+    <div class="footer-col"><h4>Tools</h4><ul>
+      <li><a href="https://tiyarecare.com" target="_blank">Tiyare Care</a></li>
+      <li><a href="/cer2-tracker.html">CER2 Tracker</a></li>
+    </ul></div>
+    <div class="footer-col"><h4>Contact</h4><ul>
+      <li><a href="/contact.html">Book a Session</a></li>
+      <li><a href="tel:2089980162">208-998-0162</a></li>
+      <li><a href="/about.html">About Dr. Cleve</a></li>
+    </ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-disclaimer">Robinson House Behavioral Health Services, LLC. Licensed as LPC-S (TX), LPCC (NM), LMHC (FL), LPC (ID), and LMHP (NE). TEA CPE Provider #910083. Content is informational only. Mental health emergency? Call 988 or 911.</p>
+    <p class="footer-copy">&copy; 2026 Robinson House Behavioral Health Services, LLC</p>
+  </div>
+</footer>
+
+<script>
+const mobileBtn=document.getElementById("mobile-btn");
+const navLinks=document.getElementById("nav-links");
+mobileBtn.addEventListener("click",()=>navLinks.classList.toggle("open"));
+navLinks.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>navLinks.classList.remove("open")));
+const observer=new IntersectionObserver((entries)=>{entries.forEach((entry,i)=>{if(entry.isIntersecting){setTimeout(()=>entry.target.classList.add("visible"),i*80);observer.unobserve(entry.target);}});},{threshold:0.1});
+document.querySelectorAll(".fade-up").forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
